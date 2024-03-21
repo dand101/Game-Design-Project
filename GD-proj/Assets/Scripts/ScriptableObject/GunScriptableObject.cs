@@ -5,8 +5,7 @@ using UnityEngine.Pool;
 [CreateAssetMenu(fileName = "Gun", menuName = "Guns/Gun", order = 0)]
 public class GunScriptableObject : ScriptableObject
 {
-    public ParticleSystem HitEffect;
-    public GunType Type;
+    [Header("References")] public GunType Type;
     public string Name;
 
     public GameObject ModelPrefab;
@@ -14,8 +13,10 @@ public class GunScriptableObject : ScriptableObject
     public Vector3 SpawnPoint;
     public Vector3 SpawnRotation;
 
+
     public ShootConfigScriptableObject ShootConfig;
     public TrailConfigScriptableObject TrailConfig;
+
 
     private MonoBehaviour ActiveMonoBehaviour;
     private GameObject Model;
@@ -70,6 +71,7 @@ public class GunScriptableObject : ScriptableObject
                     float.MaxValue,
                     ShootConfig.HitMask
                 ))
+            {
                 ActiveMonoBehaviour.StartCoroutine(
                     PlayTrail(
                         ShootSystem.transform.position,
@@ -77,7 +79,12 @@ public class GunScriptableObject : ScriptableObject
                         hit
                     )
                 );
+                var muzzlePosition = ShootSystem.transform.position + ShootSystem.transform.forward * 0.5f;
+                var muzzleRotation = ShootSystem.transform.rotation;
+                SurfaceManager.Instance.PlayMuzzleEffect(muzzlePosition, muzzleRotation);
+            }
             else
+            {
                 ActiveMonoBehaviour.StartCoroutine(
                     PlayTrail(
                         ShootSystem.transform.position,
@@ -85,6 +92,10 @@ public class GunScriptableObject : ScriptableObject
                         new RaycastHit()
                     )
                 );
+                var muzzlePosition = ShootSystem.transform.position + ShootSystem.transform.forward * 0.5f;
+                var muzzleRotation = ShootSystem.transform.rotation;
+                SurfaceManager.Instance.PlayMuzzleEffect(muzzlePosition, muzzleRotation);
+            }
         }
     }
 
@@ -114,16 +125,8 @@ public class GunScriptableObject : ScriptableObject
         instance.transform.position = EndPoint;
 
         if (Hit.collider != null)
-        {
-            // SurfaceManager.Instance.HandleImpact(
-            //     Hit.transform.gameObject,
-            //     EndPoint,
-            //     Hit.normal,
-            //     ImpactType,
-            //     0
-            // );
-        }
-        
+            SurfaceManager.Instance.HandleImpact(Hit.point, Hit.normal);
+
         yield return new WaitForSeconds(TrailConfig.Duration);
         yield return null;
         instance.emitting = false;

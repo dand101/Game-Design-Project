@@ -1,5 +1,6 @@
 public enum GunType
 {
     AssaultRifle,
-    SniperRifle
+    SniperRifle,
+    Shotgun
 }
