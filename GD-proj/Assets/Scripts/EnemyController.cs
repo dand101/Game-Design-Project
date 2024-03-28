@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] private NavMeshAgent agent;
 
+    private float playerDistanceThreshold = 10f;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -37,6 +39,19 @@ public class EnemyController : MonoBehaviour
     {
         HandleMovementInput();
 
+        if ((player.transform.position - transform.position).magnitude < playerDistanceThreshold)
+        {
+            agent.isStopped = true;
+            Debug.Log("Hit");
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, player.transform.position, out hit)) {
+                Vector3 reflectVec = Vector3.Reflect(hit.point - transform.position, hit.normal);
+                Debug.DrawLine(transform.position, hit.point, Color.red);
+                Debug.DrawRay(hit.point, reflectVec, Color.green);
+            }
+        }
+
         //if (Input.GetMouseButtonDown(0))
         //{
         //    Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -47,6 +62,8 @@ public class EnemyController : MonoBehaviour
         //        agent.SetDestination(hit.point);
         //    }
         //}
+
+        
     }
 
     void HandleMovementInput()
