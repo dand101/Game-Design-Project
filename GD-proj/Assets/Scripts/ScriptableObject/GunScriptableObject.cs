@@ -124,8 +124,14 @@ public class GunScriptableObject : ScriptableObject
 
         instance.transform.position = EndPoint;
 
+
         if (Hit.collider != null)
+        {
             SurfaceManager.Instance.HandleImpact(Hit.point, Hit.normal);
+
+            // trigger the collision event
+            Hit.collider.gameObject.SendMessage("OnCollisionEnter", new Collision(), SendMessageOptions.DontRequireReceiver);
+        }
 
         yield return new WaitForSeconds(TrailConfig.Duration);
         yield return null;

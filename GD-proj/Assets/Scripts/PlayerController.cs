@@ -10,12 +10,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float dashDistance = 5f;
 
+    private CharacterController characterController;
 
     private bool isDashing = false;
 
     // Start is called before the first frame update
     private void Start()
     {
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
         var moveY = Input.GetAxis("Vertical");
 
         var moveDirection = new Vector3(moveX, 0, moveY);
-        transform.Translate(moveDirection * (moveSpeed * Time.deltaTime), Space.World);
+        characterController.Move(moveDirection * (moveSpeed * Time.deltaTime));
     }
 
     private void HandleRotationInput()
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        // TODO: use physics
         isDashing = true;
 
         var moveX = Input.GetAxis("Horizontal");
