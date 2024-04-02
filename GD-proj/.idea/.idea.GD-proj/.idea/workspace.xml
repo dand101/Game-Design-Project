@@ -12,15 +12,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/LowPoly Guns/Material/New Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/LowPoly Guns/Material/New Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Objects/AssaultRifle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/AssaultRifle.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/dan.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/dan.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerGun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/GunScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/GunScriptableObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +108,7 @@
       <workItem from="1710964641843" duration="7916000" />
       <workItem from="1711004556570" duration="1340000" />
       <workItem from="1711009284161" duration="1793000" />
-      <workItem from="1712064759075" duration="26592000" />
+      <workItem from="1712064759075" duration="27601000" />
     </task>
     <servers />
   </component>
