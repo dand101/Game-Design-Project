@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerGunSelector GunSelector;
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
 
     private bool isDashing = false;
+    private bool isReloading = false;
+
 
     private void Start()
     {
@@ -28,7 +31,7 @@ public class PlayerController : MonoBehaviour
         HandleRotationInput();
         HandleShootInput();
         HandleDashInput();
-        
+
         // fara mai zboara :(
         ApplyGravity();
     }
@@ -56,18 +59,42 @@ public class PlayerController : MonoBehaviour
 
     private void HandleShootInput()
     {
-        if (Input.GetButton("Fire1"))
+        bool wantsToShoot = Input.GetButton("Fire1");
+        bool isMoving = characterController.velocity.magnitude > 0.1f;
+
+        GunSelector.ActiveGun.Tick(
+            !isReloading
+            && Application.isFocused && wantsToShoot
+            && GunSelector.ActiveGun != null, isMoving
+        );
+
+        if (ShouldManualReload())
         {
-            if (!isDashing && characterController.velocity.magnitude < 0.1f)
-            {
-                GunSelector.ActiveGun.Shoot(false);
-            }
-            else
-            {
-                GunSelector.ActiveGun.Shoot(true);
-            }
+            isReloading = true;
+            GunSelector.ActiveGun.gunAmmoConfig.Reload();
+            isReloading = false;
         }
+
+        // if (Input.GetButton("Fire1"))
+        // {
+        //     if (!isDashing && characterController.velocity.magnitude < 0.1f)
+        //     {
+        //         GunSelector.ActiveGun.Shoot(false);
+        //     }
+        //     else
+        //     {
+        //         GunSelector.ActiveGun.Shoot(true);
+        //     }
+        // }
     }
+
+    private bool ShouldManualReload()
+    {
+        return !isReloading
+               && Input.GetKeyDown(KeyCode.R)
+               && GunSelector.ActiveGun.CanReload();
+    }
+
 
     private void HandleDashInput()
     {

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Name: AssaultRiffle
-  ModelPrefab: {fileID: 76070286397820593, guid: 8d73c966549c2bf45a68258047518b90, type: 3}
+  ModelPrefab: {fileID: 8924923487983572156, guid: d0c4c5288bf5a8848aecdf602c060180, type: 3}
   SpawnPoint: {x: 0, y: 0, z: 0}
   SpawnRotation: {x: 0, y: 0, z: 0}
   ShootConfig: {fileID: 11400000, guid: dfddabb1d9230d140848fe8b4ee87cf1, type: 2}

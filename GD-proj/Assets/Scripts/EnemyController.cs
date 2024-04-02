@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
+// not used
 public class EnemyController : MonoBehaviour
 {
     private float moveSpeed = 2f;

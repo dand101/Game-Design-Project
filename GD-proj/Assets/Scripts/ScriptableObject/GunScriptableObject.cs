@@ -13,10 +13,11 @@ public class GunScriptableObject : ScriptableObject
     public Vector3 SpawnPoint;
     public Vector3 SpawnRotation;
 
-    
+
     public ShootConfigScriptableObject ShootConfig;
     public TrailConfigScriptableObject TrailConfig;
     public DamageConfigScriptableObject DamageConfig;
+    public GunAmmoConfig gunAmmoConfig;
 
     private MonoBehaviour ActiveMonoBehaviour;
     private GameObject Model;
@@ -26,6 +27,8 @@ public class GunScriptableObject : ScriptableObject
     private ParticleSystem ShootSystem;
 
     private ObjectPool<TrailRenderer> TrailPool;
+    private bool LastFrameWantedToShoot;
+
 
     public void Spawn(Transform Parent, MonoBehaviour ActiveMonoBehaviour)
     {
@@ -39,6 +42,9 @@ public class GunScriptableObject : ScriptableObject
         Model.transform.localRotation = Quaternion.Euler(SpawnRotation);
 
         ShootSystem = Model.GetComponentInChildren<ParticleSystem>();
+
+        gunAmmoConfig.CurrentAmmo = gunAmmoConfig.MaxAmmo;
+        gunAmmoConfig.CurrentClip = gunAmmoConfig.ClipSize;
     }
 
     public void Shoot(bool isMoving)
@@ -52,27 +58,29 @@ public class GunScriptableObject : ScriptableObject
             if (isMoving)
             {
                 shootDirection = ShootSystem.transform.forward
-                                     + new Vector3(
-                                         Random.Range(
-                                             -ShootConfig.Spread.x,
-                                             ShootConfig.Spread.x
-                                         ),
-                                         Random.Range(
-                                             -ShootConfig.Spread.y,
-                                             ShootConfig.Spread.y
-                                         ),
-                                         Random.Range(
-                                             -ShootConfig.Spread.z,
-                                             ShootConfig.Spread.z
-                                         )
-                                     );
+                                 + new Vector3(
+                                     Random.Range(
+                                         -ShootConfig.Spread.x,
+                                         ShootConfig.Spread.x
+                                     ),
+                                     Random.Range(
+                                         -ShootConfig.Spread.y,
+                                         ShootConfig.Spread.y
+                                     ),
+                                     Random.Range(
+                                         -ShootConfig.Spread.z,
+                                         ShootConfig.Spread.z
+                                     )
+                                 );
             }
             else
             {
                 shootDirection = ShootSystem.transform.forward;
             }
-            
+
             shootDirection.Normalize();
+
+            gunAmmoConfig.CurrentClip--;
 
             if (Physics.Raycast(
                     ShootSystem.transform.position,
@@ -89,7 +97,9 @@ public class GunScriptableObject : ScriptableObject
                         hit
                     )
                 );
-                var muzzlePosition = ShootSystem.transform.position + ShootSystem.transform.forward * 0.5f;
+
+                //hacky fix for muzzle position
+                var muzzlePosition = ShootSystem.transform.position + ShootSystem.transform.forward * 0.7f;
                 var muzzleRotation = ShootSystem.transform.rotation;
                 SurfaceManager.Instance.PlayMuzzleEffect(muzzlePosition, muzzleRotation);
             }
@@ -105,6 +115,23 @@ public class GunScriptableObject : ScriptableObject
                 var muzzlePosition = ShootSystem.transform.position + ShootSystem.transform.forward * 0.5f;
                 var muzzleRotation = ShootSystem.transform.rotation;
                 SurfaceManager.Instance.PlayMuzzleEffect(muzzlePosition, muzzleRotation);
+            }
+        }
+    }
+
+    public bool CanReload()
+    {
+        return gunAmmoConfig.CanReload();
+    }
+
+    public void Tick(bool wantsToShoot, bool isMoving)
+    {
+        if (wantsToShoot)
+        {
+            LastFrameWantedToShoot = true;
+            if (gunAmmoConfig.CurrentClip > 0)
+            {
+                Shoot(isMoving);
             }
         }
     }
@@ -138,14 +165,14 @@ public class GunScriptableObject : ScriptableObject
         if (Hit.collider != null)
         {
             SurfaceManager.Instance.HandleImpact(Hit.point, Hit.normal);
-            
-            
-            if(Hit.collider.gameObject.TryGetComponent(out IDamageable damageable))
+
+
+            if (Hit.collider.gameObject.TryGetComponent(out IDamageable damageable))
             {
                 damageable.TakeDamage(DamageConfig.GetDamage(distance));
             }
-            
-            
+
+
             // commented out uncomment later lol
             // // trigger the collision event
             // Hit.collider.gameObject.SendMessage("OnCollisionEnter", new Collision(), SendMessageOptions.DontRequireReceiver);
