@@ -9,19 +9,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c73b60b9-8371-44a2-9045-60992d098227" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Hot Trail.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Hot Trail.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/floorMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/floorMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAction.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerGunSelector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerGunSelector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/d.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/d.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/GunScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/GunScriptableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/GunType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/GunType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Gizmos/NavMeshLink Icon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Gizmos/NavMeshLink Icon.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Gizmos/NavMeshModifierVolume Icon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Gizmos/NavMeshModifierVolume Icon.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Gizmos/NavMeshSurface Icon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Gizmos/NavMeshSurface Icon.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshAssetManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshAssetManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshComponentsEditor.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshComponentsEditor.asmdef.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshComponentsGUIUtility.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshComponentsGUIUtility.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshLinkEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshLinkEditor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshModifierEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshModifierEditor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshModifierVolumeEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshModifierVolumeEditor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshSurfaceEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshSurfaceEditor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts/NavMeshComponents.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts/NavMeshComponents.asmdef.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts/NavMeshLink.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts/NavMeshLink.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts/NavMeshModifier.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts/NavMeshModifier.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts/NavMeshModifierVolume.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts/NavMeshModifierVolume.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts/NavMeshSurface.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NavMeshComponents/Scripts/NavMeshSurface.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Editor.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/Editor/NavMeshComponentsTestsEditmode.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Editor/NavMeshComponentsTestsEditmode.asmdef.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/Editor/NavMeshModifierVolumeInPrefabTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Editor/NavMeshModifierVolumeInPrefabTests.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/Editor/NavMeshSurfaceInPrefabTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Editor/NavMeshSurfaceInPrefabTests.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/Editor/NavMeshSurfaceInPrefabVariantTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Editor/NavMeshSurfaceInPrefabVariantTests.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/Editor/PrefabSavingUtil.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Editor/PrefabSavingUtil.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/Editor/PrefabStageAutoSavingUtil.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Editor/PrefabStageAutoSavingUtil.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/NavMeshComponentsTestsPlaymode.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/NavMeshComponentsTestsPlaymode.asmdef.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/NavMeshSurfaceAgentTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/NavMeshSurfaceAgentTests.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/NavMeshSurfaceLinkTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/NavMeshSurfaceLinkTests.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/NavMeshSurfaceModifierTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/NavMeshSurfaceModifierTests.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/NavMeshSurfaceModifierVolumeTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/NavMeshSurfaceModifierVolumeTests.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/NavMeshSurfaceTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/NavMeshSurfaceTests.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +55,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/COMPLETE_PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Yurowm/Demo/Scripts/PlayerController1.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -113,6 +138,7 @@
       <workItem from="1710964641843" duration="7916000" />
       <workItem from="1711004556570" duration="1340000" />
       <workItem from="1711009284161" duration="1793000" />
+      <workItem from="1712064759075" duration="5292000" />
     </task>
     <servers />
   </component>
@@ -121,6 +147,17 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

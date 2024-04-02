@@ -10,23 +10,26 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float dashDistance = 5f;
 
+    [SerializeField] private float gravity = 20f;
+
+
     private CharacterController characterController;
 
     private bool isDashing = false;
 
-    // Start is called before the first frame update
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         HandleMovementInput();
         HandleRotationInput();
         HandleShootInput();
         HandleDashInput();
+        
+        ApplyGravity();
     }
 
     private void HandleMovementInput()
@@ -57,30 +60,67 @@ public class PlayerController : MonoBehaviour
             GunSelector.ActiveGun.Shoot();
         }
     }
-
-
+    
     private void HandleDashInput()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing) StartCoroutine(Dash());
     }
+    
+    private void ApplyGravity()
+    {
+        if (!characterController.isGrounded)
+        {
+            characterController.Move(Vector3.down * gravity * Time.deltaTime);
+        }
+    }
+    
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody body = hit.collider.attachedRigidbody;
+
+        if (body == null || body.isKinematic)
+        {
+            return;
+        }
+
+        if (hit.moveDirection.y < -0.3)
+        {
+            return;
+        }
+
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+        
+        body.velocity = pushDir * 4.0f;
+    }
+    
 
     private IEnumerator Dash()
     {
-        // TODO: use physics
-        isDashing = true;
-
-        var moveX = Input.GetAxis("Horizontal");
-        var moveY = Input.GetAxis("Vertical");
-        var dashDirection = new Vector3(moveX, 0, moveY).normalized;
-
         var startPosition = transform.position;
+        
+        var dashDirection = characterController.velocity.normalized;
         var dashTarget = startPosition + dashDirection * dashDistance;
 
-        while (Vector3.Distance(transform.position, dashTarget) > 0.1f)
+        bool collided = false;
+        RaycastHit hit;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < 1f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, dashTarget, moveSpeed * Time.deltaTime * 5f);
+            transform.position = Vector3.Lerp(startPosition, dashTarget, elapsedTime);
+            
+            if (Physics.Raycast(transform.position, dashDirection, out hit, 0.5f))
+            {
+                collided = true;
+                break; 
+            }
+            elapsedTime += Time.deltaTime * (moveSpeed * 5f) / dashDistance; // Adjusted for varying frame rates
+
             yield return null;
         }
+
+        if (!collided)
+            transform.position = dashTarget;
 
         isDashing = false;
     }
