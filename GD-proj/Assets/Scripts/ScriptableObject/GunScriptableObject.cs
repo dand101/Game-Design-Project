@@ -128,9 +128,10 @@ public class GunScriptableObject : ScriptableObject
         if (Hit.collider != null)
         {
             SurfaceManager.Instance.HandleImpact(Hit.point, Hit.normal);
-
-            // trigger the collision event
-            Hit.collider.gameObject.SendMessage("OnCollisionEnter", new Collision(), SendMessageOptions.DontRequireReceiver);
+            
+            // commented out uncomment later lol
+            // // trigger the collision event
+            // Hit.collider.gameObject.SendMessage("OnCollisionEnter", new Collision(), SendMessageOptions.DontRequireReceiver);
         }
 
         yield return new WaitForSeconds(TrailConfig.Duration);
