@@ -13,10 +13,10 @@ public class GunScriptableObject : ScriptableObject
     public Vector3 SpawnPoint;
     public Vector3 SpawnRotation;
 
-
+    
     public ShootConfigScriptableObject ShootConfig;
     public TrailConfigScriptableObject TrailConfig;
-
+    public DamageConfigScriptableObject DamageConfig;
 
     private MonoBehaviour ActiveMonoBehaviour;
     private GameObject Model;
@@ -138,6 +138,13 @@ public class GunScriptableObject : ScriptableObject
         if (Hit.collider != null)
         {
             SurfaceManager.Instance.HandleImpact(Hit.point, Hit.normal);
+            
+            
+            if(Hit.collider.gameObject.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.TakeDamage(DamageConfig.GetDamage(distance));
+            }
+            
             
             // commented out uncomment later lol
             // // trigger the collision event

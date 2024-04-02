@@ -12,13 +12,41 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD-proj/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/SpeedTutor - Tutorial Scene - FREE/Material/M_Tileable_Walls.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/SpeedTutor - Tutorial Scene - FREE/Material/M_Tileable_Walls.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/cosmin.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/cosmin.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/d.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/d.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/stefana.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/stefana.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/stefana_Profiles/Main Camera Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/stefana_Profiles/Main Camera Profile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/SpeedTutor - Tutorial Scene - FREE/Prefabs/Centre Cube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/SpeedTutor - Tutorial Scene - FREE/Prefabs/Centre Cube.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Dust.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Dust.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Embers.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Embers.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/EnergyExplosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/EnergyExplosion.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Explosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Explosion.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/FireExplosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/FireExplosion.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/LargeFlame01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/LargeFlame01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Lightning.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Lightning.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/MediumFlame01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/MediumFlame01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/SandParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/SandParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/SmokeDark.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/SmokeDark.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/fireball.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/fireball.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Prefabs/PlasmaExplosionEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Prefabs/PlasmaExplosionEffect.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopSplatParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopSplatParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopStreamParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopStreamParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/EarthCrack.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/EarthCrack.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/Embers.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/Embers.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/Fireball.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/Fireball.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/IceMist.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/IceMist.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/IceTrail.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/IceTrail.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/RockDust.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/RockDust.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/RockSpike.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/RockSpike.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Objects/AssaultRifle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/AssaultRifle.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerObj 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerObj 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/cosmin/NavMesh-NavMesh 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/cosmin/NavMesh-NavMesh 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/cosmin/NavMesh-NavMesh 1.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/cosmin/NavMesh-NavMesh 1.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/dan.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/dan.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/CameraController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerGun.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerGunSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerGunSelector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerGunSelector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerGunSelector.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/GunScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/GunScriptableObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +68,9 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2dxzhSL0dNzupiaCRZ6y1UqLABG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -113,7 +144,7 @@
       <workItem from="1710964641843" duration="7916000" />
       <workItem from="1711004556570" duration="1340000" />
       <workItem from="1711009284161" duration="1793000" />
-      <workItem from="1712064759075" duration="7772000" />
+      <workItem from="1712064759075" duration="21515000" />
     </task>
     <servers />
   </component>

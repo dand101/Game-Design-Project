@@ -28,7 +28,8 @@ public class PlayerController : MonoBehaviour
         HandleRotationInput();
         HandleShootInput();
         HandleDashInput();
-
+        
+        // fara mai zboara :(
         ApplyGravity();
     }
 
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDashInput()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing) StartCoroutine(Dash());
+        if (Input.GetKeyDown(KeyCode.Space) && !isDashing) StartCoroutine(Dash());
     }
 
     private void ApplyGravity()
@@ -122,7 +123,7 @@ public class PlayerController : MonoBehaviour
                 break;
             }
 
-            elapsedTime += Time.deltaTime * (moveSpeed * 5f) / dashDistance; // Adjusted for varying frame rates
+            elapsedTime += Time.deltaTime * (moveSpeed * 5f) / dashDistance;
 
             yield return null;
         }
