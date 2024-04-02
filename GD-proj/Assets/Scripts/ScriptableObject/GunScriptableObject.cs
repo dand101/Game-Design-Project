@@ -41,27 +41,37 @@ public class GunScriptableObject : ScriptableObject
         ShootSystem = Model.GetComponentInChildren<ParticleSystem>();
     }
 
-    public void Shoot()
+    public void Shoot(bool isMoving)
     {
         if (Time.time > ShootConfig.FireRate + LastShootTime)
         {
             LastShootTime = Time.time;
             ShootSystem.Play();
-            var shootDirection = ShootSystem.transform.forward
-                                 + new Vector3(
-                                     Random.Range(
-                                         -ShootConfig.Spread.x,
-                                         ShootConfig.Spread.x
-                                     ),
-                                     Random.Range(
-                                         -ShootConfig.Spread.y,
-                                         ShootConfig.Spread.y
-                                     ),
-                                     Random.Range(
-                                         -ShootConfig.Spread.z,
-                                         ShootConfig.Spread.z
-                                     )
-                                 );
+
+            Vector3 shootDirection;
+            if (isMoving)
+            {
+                shootDirection = ShootSystem.transform.forward
+                                     + new Vector3(
+                                         Random.Range(
+                                             -ShootConfig.Spread.x,
+                                             ShootConfig.Spread.x
+                                         ),
+                                         Random.Range(
+                                             -ShootConfig.Spread.y,
+                                             ShootConfig.Spread.y
+                                         ),
+                                         Random.Range(
+                                             -ShootConfig.Spread.z,
+                                             ShootConfig.Spread.z
+                                         )
+                                     );
+            }
+            else
+            {
+                shootDirection = ShootSystem.transform.forward;
+            }
+            
             shootDirection.Normalize();
 
             if (Physics.Raycast(

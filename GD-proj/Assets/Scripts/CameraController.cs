@@ -13,13 +13,11 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 4f;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         MoveCamera();

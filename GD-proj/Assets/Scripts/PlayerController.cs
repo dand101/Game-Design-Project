@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         HandleRotationInput();
         HandleShootInput();
         HandleDashInput();
-        
+
         ApplyGravity();
     }
 
@@ -57,15 +57,22 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            GunSelector.ActiveGun.Shoot();
+            if (!isDashing && characterController.velocity.magnitude < 0.1f)
+            {
+                GunSelector.ActiveGun.Shoot(false);
+            }
+            else
+            {
+                GunSelector.ActiveGun.Shoot(true);
+            }
         }
     }
-    
+
     private void HandleDashInput()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing) StartCoroutine(Dash());
     }
-    
+
     private void ApplyGravity()
     {
         if (!characterController.isGrounded)
@@ -73,7 +80,7 @@ public class PlayerController : MonoBehaviour
             characterController.Move(Vector3.down * gravity * Time.deltaTime);
         }
     }
-    
+
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody body = hit.collider.attachedRigidbody;
@@ -89,15 +96,15 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-        
+
         body.velocity = pushDir * 4.0f;
     }
-    
+
 
     private IEnumerator Dash()
     {
         var startPosition = transform.position;
-        
+
         var dashDirection = characterController.velocity.normalized;
         var dashTarget = startPosition + dashDirection * dashDistance;
 
@@ -108,12 +115,13 @@ public class PlayerController : MonoBehaviour
         while (elapsedTime < 1f)
         {
             transform.position = Vector3.Lerp(startPosition, dashTarget, elapsedTime);
-            
+
             if (Physics.Raycast(transform.position, dashDirection, out hit, 0.5f))
             {
                 collided = true;
-                break; 
+                break;
             }
+
             elapsedTime += Time.deltaTime * (moveSpeed * 5f) / dashDistance; // Adjusted for varying frame rates
 
             yield return null;
