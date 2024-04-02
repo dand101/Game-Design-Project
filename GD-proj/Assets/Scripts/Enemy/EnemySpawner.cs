@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnInterval = 5f;
     public float spawnRadius = 20f;
     private Transform player;
-    
+
 
     private void Start()
     {
@@ -26,11 +26,19 @@ public class EnemySpawner : MonoBehaviour
 
             GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
 
+
+            ///// giant hacky fix dont delete it will break the game >:))))))))
+            enemy.GetComponent<CharacterController>().enabled = true;
+            Destroy(enemy.GetComponent<Rigidbody>());
+            /////
+
             NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
 
             if (agent != null)
             {
                 agent.enabled = true;
+
+
                 yield return new WaitForSeconds(0.1f);
                 agent.SetDestination(player.position);
             }

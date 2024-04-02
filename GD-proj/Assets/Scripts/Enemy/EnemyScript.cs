@@ -27,7 +27,7 @@ public class EnemyScript : MonoBehaviour
         CharacterController characterController = GetComponent<CharacterController>();
         if (characterController != null)
         {
-            Destroy(characterController);
+            characterController.enabled = false;
         }
 
         Rigidbody rb = gameObject.AddComponent<Rigidbody>();
