@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359bdebee60a4932a22f7ca8fcfe3229, type: 3}
   m_Name: AssaultAmmoConfig
   m_EditorClassIdentifier: 
-  MaxAmmo: 300
+  MaxAmmo: 1000
   ClipSize: 30
-  CurrentAmmo: 0
-  CurrentClip: 0
+  CurrentAmmo: 1000
+  CurrentClip: 30
