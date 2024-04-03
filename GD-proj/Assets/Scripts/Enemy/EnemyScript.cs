@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour
     {
         Behaviour.StopMoving();
         HitResp.HandleDeath();
-
+        
         FallOver();
     }
 

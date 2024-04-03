@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4840409160595329378}
   - component: {fileID: 7965692463898837906}
   - component: {fileID: 2561063911383834844}
+  - component: {fileID: 5445744865854864845}
   m_Layer: 0
   m_Name: EnemyComplete
   m_TagString: Untagged
@@ -189,8 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4ec45690d64c8f9ded503f02efae0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  Health: 100
+  maxHealth: 50
+  Health: 50
 --- !u!114 &4840409160595329378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,3 +232,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathSystem: {fileID: 198000010585806678, guid: 96730f8640590934eacb6f860058e7f9, type: 3}
+--- !u!114 &5445744865854864845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581712269126235479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

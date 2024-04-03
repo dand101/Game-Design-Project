@@ -50,7 +50,9 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit))
+        int layerMask = ~LayerMask.GetMask("Wall Enclosure");
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
             var lookAtPosition = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             transform.LookAt(lookAtPosition);
