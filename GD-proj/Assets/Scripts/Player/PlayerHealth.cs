@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player died");
 
         // Restart when dead
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         OnDeath?.Invoke();
     }

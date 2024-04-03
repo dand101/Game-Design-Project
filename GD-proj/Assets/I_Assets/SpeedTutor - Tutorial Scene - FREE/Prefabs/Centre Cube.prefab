@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 65314468679415850}
   - component: {fileID: 23818829674412902}
   - component: {fileID: 65221493401946458}
-  - component: {fileID: 2270152383838744165}
+  - component: {fileID: 7998425821482368787}
   m_Layer: 0
   m_Name: Centre Cube
   m_TagString: Untagged
@@ -128,7 +128,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9999999, y: 0.99999994, z: 0.99999994}
   m_Center: {x: -0.00000047683716, y: -0.000000059604645, z: 0.00000023841858}
---- !u!114 &2270152383838744165
+--- !u!114 &7998425821482368787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,13 +137,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1365698620575316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Script: {fileID: 11500000, guid: b0b0438bc03038842a289608cef7d5b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OverrideArea: 1
+  m_Size: {x: 1, y: 1.42, z: 1.2}
+  m_Center: {x: 0, y: 0, z: 0}
   m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
