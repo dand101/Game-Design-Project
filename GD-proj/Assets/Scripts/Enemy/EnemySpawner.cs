@@ -5,10 +5,10 @@ using UnityEngine.AI;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public GameObject enemyPrefab2;
     public float spawnInterval = 5f;
     public float spawnRadius = 20f;
     private Transform player;
-
 
     private void Start()
     {
@@ -26,20 +26,21 @@ public class EnemySpawner : MonoBehaviour
 
             if (spawnPosition != Vector3.zero)
             {
-                GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                GameObject enemyToSpawn = Random.Range(0, 2) == 0 ? enemyPrefab : enemyPrefab2;
+                Debug.Log(enemyToSpawn.name);
 
+                GameObject enemy = Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
 
                 ///// giant hacky fix dont delete it will break the game >:))))))))
                 enemy.GetComponent<CharacterController>().enabled = true;
                 Destroy(enemy.GetComponent<Rigidbody>());
-                /////
+                /////////////////////////////////////////////////////////
 
                 NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
 
                 if (agent != null)
                 {
                     agent.enabled = true;
-
 
                     yield return new WaitForSeconds(0.1f);
                     agent.SetDestination(player.position);

@@ -16,6 +16,7 @@ public class EnemyShootingBehaviour : EnemyBehaviour
 
     private bool isShooting = false;
     private ObjectPool<TrailRenderer> trailPool;
+    private NavMeshAgent agent;
 
     public override void Awake()
     {
@@ -26,6 +27,7 @@ public class EnemyShootingBehaviour : EnemyBehaviour
 
         // Initialize the trail pool
         trailPool = new ObjectPool<TrailRenderer>(CreateTrail);
+        agent = GetComponent<NavMeshAgent>();
     }
 
     public override void Start()
