@@ -7,12 +7,11 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBehaviour : MonoBehaviour
 {
-    //no animator yet AAAAAAAAAAAAAAAAA
     //private Animator Animator;
-    private NavMeshAgent Agent;
+    protected NavMeshAgent Agent;
 
-    private Transform player;
-    private PlayerHealth playerHealth;
+    protected Transform player;
+    protected PlayerHealth playerHealth;
 
     public float attackRange = 5f;
     public int damageAmount = 10;
@@ -21,7 +20,7 @@ public class EnemyBehaviour : MonoBehaviour
     private float nextAttackTime;
 
 
-    private void Awake()
+    public virtual void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -29,7 +28,7 @@ public class EnemyBehaviour : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
     }
 
-    private void Start()
+    public virtual void Start()
     {
         //AAAAAAAAAAAAAA 2
         //Animator = GetComponent<Animator>();
@@ -38,7 +37,7 @@ public class EnemyBehaviour : MonoBehaviour
         StartCoroutine(UpdateMovement());
     }
 
-    private IEnumerator UpdateMovement()
+    protected virtual IEnumerator UpdateMovement()
     {
         WaitForSeconds waitForSeconds = new WaitForSeconds(0.1f);
 
@@ -46,13 +45,13 @@ public class EnemyBehaviour : MonoBehaviour
         {
             if (IsPlayerInRange() && Time.time >= nextAttackTime)
             {
-                //Debug.Log("Attacking player");
+                Debug.Log("Attacking player");
                 Attack();
                 nextAttackTime = Time.time + 1f / attackSpeed;
             }
             else if (!IsPlayerInRange())
             {
-                //Debug.Log("Chasing player");
+                Debug.Log("Chasing player");
                 Chase();
             }
 
@@ -60,16 +59,15 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    private void Chase()
+    public void Chase()
     {
-        //Debug.Log("Chasing player");
         Agent.isStopped = false;
 
         //animator.SetBool(IsWalking, true);
         Agent.SetDestination(player.position);
     }
 
-    private void Attack()
+    public virtual void Attack()
     {
         Agent.isStopped = true;
 
@@ -91,11 +89,11 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    private void DealDamageToPlayer()
+    protected virtual void DealDamageToPlayer(int damageAmount = 10)
     {
         playerHealth.TakeDamage(damageAmount);
     }
-    
+
 
     private void OnDrawGizmos()
     {
@@ -103,7 +101,7 @@ public class EnemyBehaviour : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
-    private bool IsPlayerInRange()
+    protected virtual bool IsPlayerInRange()
     {
         return Vector3.Distance(transform.position, player.position) <= attackRange;
     }
@@ -111,7 +109,11 @@ public class EnemyBehaviour : MonoBehaviour
     public void StopMoving()
     {
         StopAllCoroutines();
-        Agent.isStopped = true;
-        Agent.enabled = false;
+
+        if (Agent != null)
+        {
+            Agent.isStopped = true;
+            Agent.enabled = false;
+        }
     }
 }

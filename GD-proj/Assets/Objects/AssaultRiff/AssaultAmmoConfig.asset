@@ -16,3 +16,5 @@ MonoBehaviour:
   ClipSize: 30
   CurrentAmmo: 1000
   CurrentClip: 30
+  MaxAmmoStandard: 1000
+  ClipSizeStandard: 30
