@@ -10,6 +10,7 @@ public class PlayerGunSelector : MonoBehaviour
     [SerializeField] private List<GunScriptableObject> guns;
 
     [Space] [Header("Runtime Filled")] public GunScriptableObject ActiveGun;
+    [Space] [Header("Runtime Filled")] public int activeGunIndex;
 
     // private void Start()
     // {
@@ -29,15 +30,16 @@ public class PlayerGunSelector : MonoBehaviour
     {
         ActiveGun = guns[0];
         ActiveGun.Spawn(gunParent, this);
+        activeGunIndex = 0;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && activeGunIndex != 0)
         {
             SwitchGun(0);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && guns.Count >= 2)
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && activeGunIndex != 1)
         {
             SwitchGun(1);
         }
@@ -47,11 +49,11 @@ public class PlayerGunSelector : MonoBehaviour
     {
         if (index >= 0 && index < guns.Count)
         {
-
             GunScriptableObject lastGun = ActiveGun;
             ActiveGun = guns[index];
             ActiveGun.Spawn(gunParent, this);
             lastGun.Despawn();
+            activeGunIndex = index;
         }
         else
         {
