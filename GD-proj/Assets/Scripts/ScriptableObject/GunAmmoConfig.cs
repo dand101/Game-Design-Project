@@ -10,6 +10,11 @@ public class GunAmmoConfig : ScriptableObject
     public int CurrentAmmo = 300;
     public int CurrentClip = 30;
 
+    [Space] [Header("Standard Values for weapon")]
+    public int MaxAmmoStandard = 300;
+
+    public int ClipSizeStandard = 30;
+
     public void Reload()
     {
         if (CurrentAmmo < ClipSize)

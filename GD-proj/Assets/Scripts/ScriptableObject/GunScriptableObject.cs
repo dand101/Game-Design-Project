@@ -43,10 +43,18 @@ public class GunScriptableObject : ScriptableObject
 
         ShootSystem = Model.GetComponentInChildren<ParticleSystem>();
 
-        gunAmmoConfig.CurrentAmmo = gunAmmoConfig.MaxAmmo;
-        gunAmmoConfig.CurrentClip = gunAmmoConfig.ClipSize;
+        // gunAmmoConfig.CurrentAmmo = gunAmmoConfig.MaxAmmo;
+        // gunAmmoConfig.CurrentClip = gunAmmoConfig.ClipSize;
     }
 
+    public void Despawn()
+    {
+        Model.gameObject.SetActive(false);
+        Destroy(Model);
+        TrailPool.Clear();
+        ShootSystem = null;
+    }
+    
     public void Shoot(bool isMoving)
     {
         if (Time.time > ShootConfig.FireRate + LastShootTime)
@@ -204,11 +212,5 @@ public class GunScriptableObject : ScriptableObject
         return trail;
     }
     
-    public void Despawn()
-    {
-        Model.gameObject.SetActive(false);
-        Destroy(Model);
-        TrailPool.Clear();
-        ShootSystem = null;
-    }
+    
 }

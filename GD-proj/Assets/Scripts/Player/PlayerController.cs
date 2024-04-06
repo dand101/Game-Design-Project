@@ -76,18 +76,7 @@ public class PlayerController : MonoBehaviour
             GunSelector.ActiveGun.gunAmmoConfig.Reload();
             isReloading = false;
         }
-
-        // if (Input.GetButton("Fire1"))
-        // {
-        //     if (!isDashing && characterController.velocity.magnitude < 0.1f)
-        //     {
-        //         GunSelector.ActiveGun.Shoot(false);
-        //     }
-        //     else
-        //     {
-        //         GunSelector.ActiveGun.Shoot(true);
-        //     }
-        // }
+        
     }
 
     private bool ShouldManualReload()

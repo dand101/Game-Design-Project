@@ -11,20 +11,7 @@ public class PlayerGunSelector : MonoBehaviour
 
     [Space] [Header("Runtime Filled")] public GunScriptableObject ActiveGun;
     [Space] [Header("Runtime Filled")] public int activeGunIndex;
-
-    // private void Start()
-    // {
-    //     GunScriptableObject gun = Guns.Find(gun => gun.Type == Gun);
-    //
-    //     if (gun == null)
-    //     {
-    //         Debug.LogError($"No GunScriptableObject found for GunType: {gun}");
-    //         return;
-    //     }
-    //
-    //     ActiveGun = gun;
-    //     gun.Spawn(GunParent, this);
-    // }
+    
 
     private void Start()
     {
