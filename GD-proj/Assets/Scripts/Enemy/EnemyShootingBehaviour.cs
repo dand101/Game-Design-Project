@@ -41,16 +41,22 @@ public class EnemyShootingBehaviour : EnemyBehaviour
         {
             if (IsPlayerInRange())
             {
-                isShooting = true;
-                Agent.isStopped = true;
-                StartShooting();
-                yield return new WaitForSeconds(1f / fireRate);
-                StopShooting();
-                isShooting = false;
-                Chase();
+                if (!isShooting)
+                {
+                    Agent.isStopped = true;
+                    isShooting = true;
+                    StartShooting();
+                }
             }
-            else if (!IsPlayerInRange())
+            else
             {
+                if (isShooting)
+                {
+                    isShooting = false;
+                    StopShooting();
+                    Agent.isStopped = false;
+                }
+
                 Chase();
             }
 
@@ -72,6 +78,8 @@ public class EnemyShootingBehaviour : EnemyBehaviour
     private void Shoot()
     {
         if (!Agent.isActiveAndEnabled) return;
+
+        transform.LookAt(player.position);
 
         Vector3 direction = transform.forward
                             + new Vector3(
