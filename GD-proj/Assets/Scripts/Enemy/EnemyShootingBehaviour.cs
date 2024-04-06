@@ -114,6 +114,11 @@ public class EnemyShootingBehaviour : EnemyBehaviour
             if (hit.collider.name == "Player")
             {
                 DealDamageToPlayer(gunDamage);
+                SurfaceManager.Instance.HandleImpact(hit.point, hit.normal);
+            }
+            else if (hit.collider != null)
+            {
+                SurfaceManager.Instance.HandleImpact(hit.point, hit.normal);
             }
         }
     }
