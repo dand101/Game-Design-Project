@@ -5,28 +5,57 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class PlayerGunSelector : MonoBehaviour
 {
-    [SerializeField]
-    private GunType Gun;
-    [SerializeField]
-    private Transform GunParent;
-    [SerializeField]
-    private List<GunScriptableObject> Guns;
+    [SerializeField] private GunType Gun;
+    [SerializeField] private Transform gunParent;
+    [SerializeField] private List<GunScriptableObject> guns;
 
-    [Space]
-    [Header("Runtime Filled")]
-    public GunScriptableObject ActiveGun;
+    [Space] [Header("Runtime Filled")] public GunScriptableObject ActiveGun;
+
+    // private void Start()
+    // {
+    //     GunScriptableObject gun = Guns.Find(gun => gun.Type == Gun);
+    //
+    //     if (gun == null)
+    //     {
+    //         Debug.LogError($"No GunScriptableObject found for GunType: {gun}");
+    //         return;
+    //     }
+    //
+    //     ActiveGun = gun;
+    //     gun.Spawn(GunParent, this);
+    // }
 
     private void Start()
     {
-        GunScriptableObject gun = Guns.Find(gun => gun.Type == Gun);
+        ActiveGun = guns[0];
+        ActiveGun.Spawn(gunParent, this);
+    }
 
-        if (gun == null)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.LogError($"No GunScriptableObject found for GunType: {gun}");
-            return;
+            SwitchGun(0);
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && guns.Count >= 2)
+        {
+            SwitchGun(1);
+        }
+    }
 
-        ActiveGun = gun;
-        gun.Spawn(GunParent, this);
+    private void SwitchGun(int index)
+    {
+        if (index >= 0 && index < guns.Count)
+        {
+
+            GunScriptableObject lastGun = ActiveGun;
+            ActiveGun = guns[index];
+            ActiveGun.Spawn(gunParent, this);
+            lastGun.Despawn();
+        }
+        else
+        {
+            Debug.LogWarning("Invalid gun index.");
+        }
     }
 }

@@ -303,6 +303,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3188489296035035371, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
+      propertyPath: Gun
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188489296035035371, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
+      propertyPath: Guns.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188489296035035371, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
+      propertyPath: Guns.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 16a6d23eac5a50f4aa9714ead06a7642, type: 2}
+    - target: {fileID: 3188489296035035371, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
+      propertyPath: Guns.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 16a6d23eac5a50f4aa9714ead06a7642, type: 2}
     - target: {fileID: 4733189265541512908, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.172503

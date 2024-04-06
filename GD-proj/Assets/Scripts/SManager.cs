@@ -8,7 +8,7 @@ public class SurfaceManager : MonoBehaviour
 
     [Tooltip("The impact effect prefab to be played on surface hits.")]
     public GameObject impactEffectPrefab;
-    
+
     [Tooltip("The muzzle effect prefab to be played when shooting.")]
     public GameObject muzzleEffectPrefab;
 
@@ -53,18 +53,18 @@ public class SurfaceManager : MonoBehaviour
             Debug.LogWarning("No impact effect prefab assigned to SurfaceManager. Please assign one in the inspector.");
         }
     }
-    
-    public void PlayMuzzleEffect(Vector3 position, Quaternion rotation)
+
+    public void PlayMuzzleEffect(GameObject parent, Vector3 position, Quaternion rotation)
     {
         if (muzzleEffectPrefab != null)
         {
-            GameObject muzzleEffectInstance = Instantiate(muzzleEffectPrefab, position, rotation);
+            GameObject muzzleEffectInstance = Instantiate(muzzleEffectPrefab, position, rotation, parent.transform);
+
             ParticleSystem muzzleParticleSystem = muzzleEffectInstance.GetComponent<ParticleSystem>();
 
             if (muzzleParticleSystem != null)
             {
                 float effectDuration = muzzleParticleSystem.main.duration;
-
                 Destroy(muzzleEffectInstance, effectDuration);
             }
             else
@@ -77,6 +77,4 @@ public class SurfaceManager : MonoBehaviour
             Debug.LogWarning("No muzzle effect prefab assigned to SurfaceManager. Please assign one in the inspector.");
         }
     }
-
-
 }

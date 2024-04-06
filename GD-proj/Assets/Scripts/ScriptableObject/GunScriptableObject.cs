@@ -98,10 +98,11 @@ public class GunScriptableObject : ScriptableObject
                     )
                 );
 
-                //hacky fix for muzzle position
-                var muzzlePosition = ShootSystem.transform.position + ShootSystem.transform.forward * 0.7f;
-                var muzzleRotation = ShootSystem.transform.rotation;
-                SurfaceManager.Instance.PlayMuzzleEffect(muzzlePosition, muzzleRotation);
+                GameObject firingPoint = Model.transform.Find("FiringPoint").gameObject;
+                Vector3 firingPointPosition = firingPoint.transform.position;
+                Quaternion firingPointRotation = firingPoint.transform.rotation;
+
+                SurfaceManager.Instance.PlayMuzzleEffect(firingPoint, firingPointPosition, firingPointRotation);
             }
             else
             {
@@ -112,9 +113,11 @@ public class GunScriptableObject : ScriptableObject
                         new RaycastHit()
                     )
                 );
-                var muzzlePosition = ShootSystem.transform.position + ShootSystem.transform.forward * 0.5f;
-                var muzzleRotation = ShootSystem.transform.rotation;
-                SurfaceManager.Instance.PlayMuzzleEffect(muzzlePosition, muzzleRotation);
+                GameObject firingPoint = Model.transform.Find("FiringPoint").gameObject;
+                Vector3 firingPointPosition = firingPoint.transform.position;
+                Quaternion firingPointRotation = firingPoint.transform.rotation;
+
+                SurfaceManager.Instance.PlayMuzzleEffect(firingPoint, firingPointPosition, firingPointRotation);
             }
         }
     }
@@ -199,5 +202,13 @@ public class GunScriptableObject : ScriptableObject
         trail.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
         return trail;
+    }
+    
+    public void Despawn()
+    {
+        Model.gameObject.SetActive(false);
+        Destroy(Model);
+        TrailPool.Clear();
+        ShootSystem = null;
     }
 }
