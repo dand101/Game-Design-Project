@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class EnemyScript : MonoBehaviour
     public EnemyBehaviour Behaviour;
     public EnemyHitResp HitResp;
 
+    public GameObject PowerUpPrefab;
+    
     private void Start()
     {
         Health.OnTakeDamage += HitResp.HitPain;
@@ -19,6 +22,16 @@ public class EnemyScript : MonoBehaviour
         HitResp.HandleDeath();
         
         FallOver();
+
+        // spawn a PowerUp
+        GameObject powerUp = Instantiate(PowerUpPrefab, transform.position, Quaternion.identity);
+
+        // attach a random type to the PowerUp
+        Type[] powerUpTypes = { typeof(PowerUpFireRate), typeof(PowerUpSpread), typeof(PowerUpHealth), typeof(PowerUpAmmoCapacity) };
+
+        var rand = new System.Random();
+        int index = rand.Next(0, powerUpTypes.Length);
+        powerUp.AddComponent(powerUpTypes[index]);
     }
 
     // just to make it fall. will be replaced with a proper animation

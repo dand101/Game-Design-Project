@@ -65,6 +65,8 @@ public class GunScriptableObject : ScriptableObject
             Vector3 shootDirection;
             if (isMoving)
             {
+                // TODO: pare cam prea mult spread, in sensul ca uneori trage in cu totul alta directie, nici macar pe aproape
+                // poate ar trebui sa vedem aici cum modificam
                 shootDirection = ShootSystem.transform.forward
                                  + new Vector3(
                                      Random.Range(
