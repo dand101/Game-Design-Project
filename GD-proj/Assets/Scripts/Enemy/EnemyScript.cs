@@ -27,7 +27,7 @@ public class EnemyScript : MonoBehaviour
         GameObject powerUp = Instantiate(PowerUpPrefab, transform.position, Quaternion.identity);
 
         // attach a random type to the PowerUp
-        Type[] powerUpTypes = { typeof(PowerUpFireRate), typeof(PowerUpSpread), typeof(PowerUpHealth), typeof(PowerUpAmmoCapacity) };
+        Type[] powerUpTypes = { typeof(PowerUpFireRate), typeof(PowerUpSpread), typeof(PowerUpHealth), typeof(PowerUpAmmoCapacity), typeof(PowerUpAmmoIncrease) };
 
         var rand = new System.Random();
         int index = rand.Next(0, powerUpTypes.Length);
