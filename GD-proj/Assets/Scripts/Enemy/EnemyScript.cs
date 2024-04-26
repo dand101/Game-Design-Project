@@ -9,11 +9,14 @@ public class EnemyScript : MonoBehaviour
     public EnemyHitResp HitResp;
 
     public GameObject PowerUpPrefab;
-    
+
     public float removalDelay = 4f;
-    
     public event Action<GameObject> OnDeath;
-    
+
+
+    [Header("On Death materials")] public Material material;
+
+
     private void Start()
     {
         Health.OnTakeDamage += HitResp.HitPain;
@@ -24,8 +27,23 @@ public class EnemyScript : MonoBehaviour
     {
         Behaviour.StopMoving();
         HitResp.HandleDeath();
-        
+
         FallOver();
+
+        Outline outline = GetComponent<Outline>();
+        outline.enabled = false;
+
+        Renderer renderer = GetComponent<Renderer>();
+        if (renderer != null && material != null)
+        {
+            renderer.material = material;
+        }
+
+        U10PS_DissolveOverTime dissolveScript = GetComponent<U10PS_DissolveOverTime>();
+        if (dissolveScript != null)
+        {
+            dissolveScript.enabled = true;
+        }
 
         // // spawn a PowerUp
         // GameObject powerUp = Instantiate(PowerUpPrefab, transform.position, Quaternion.identity);
@@ -36,7 +54,7 @@ public class EnemyScript : MonoBehaviour
         // var rand = new System.Random();
         // int index = rand.Next(0, powerUpTypes.Length);
         // powerUp.AddComponent(powerUpTypes[index]);
-        
+
         OnDeath?.Invoke(gameObject);
         Destroy(gameObject, removalDelay);
     }

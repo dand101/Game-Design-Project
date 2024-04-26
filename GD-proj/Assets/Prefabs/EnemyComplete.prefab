@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7965692463898837906}
   - component: {fileID: 2561063911383834844}
   - component: {fileID: 5445744865854864845}
+  - component: {fileID: 729846696406130840}
   m_Layer: 0
   m_Name: EnemyComplete
   m_TagString: Untagged
@@ -221,6 +222,7 @@ MonoBehaviour:
   HitResp: {fileID: 4840409160595329378}
   PowerUpPrefab: {fileID: 0}
   removalDelay: 4
+  material: {fileID: 2100000, guid: 3e7101ee60b046b418bc7a05d385162b, type: 2}
 --- !u!114 &2561063911383834844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,3 +254,16 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &729846696406130840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581712269126235479}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b1400b7a7b74b3438a843bb97c82f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.3
