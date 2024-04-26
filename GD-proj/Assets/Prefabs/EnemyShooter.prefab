@@ -206,6 +206,8 @@ MonoBehaviour:
   Health: {fileID: 6907647561107829918}
   Behaviour: {fileID: 7461254187813345855}
   HitResp: {fileID: 1619411798621783023}
+  PowerUpPrefab: {fileID: 0}
+  removalDelay: 4
 --- !u!114 &2566855826067701921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +260,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 512
-  fireRate: 10
+  fireRate: 5
   gunDamage: 5
   trailConfig: {fileID: 11400000, guid: c0b8a678b75dd1e4fb0a67de848852a4, type: 2}
   ShootConfig: {fileID: 11400000, guid: 0ba40644567a82544abd55f9d5bdc6c7, type: 2}

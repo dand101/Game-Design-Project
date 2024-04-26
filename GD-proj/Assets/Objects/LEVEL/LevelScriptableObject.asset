@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 359bdebee60a4932a22f7ca8fcfe3229, type: 3}
-  m_Name: AssaultAmmoConfig
+  m_Script: {fileID: 11500000, guid: abd7c6b855684dcf87eef52243f2d281, type: 3}
+  m_Name: LevelScriptableObject
   m_EditorClassIdentifier: 
-  MaxAmmo: 1000
-  ClipSize: 30
-  CurrentAmmo: 820
-  CurrentClip: 30
-  MaxAmmoStandard: 1000
-  ClipSizeStandard: 30
+  currentLevel: 1

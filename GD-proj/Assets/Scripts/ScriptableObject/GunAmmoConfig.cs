@@ -21,7 +21,6 @@ public class GunAmmoConfig : ScriptableObject
         {
             CurrentClip = CurrentAmmo;
             CurrentAmmo = 0;
-            return;
         }
         else
         {
@@ -32,6 +31,6 @@ public class GunAmmoConfig : ScriptableObject
 
     public bool CanReload()
     {
-        return CurrentClip < ClipSize && CurrentAmmo > 0 && CurrentAmmo - ClipSize >= 0;
+        return CurrentClip < ClipSize && CurrentAmmo > 0;
     }
 }

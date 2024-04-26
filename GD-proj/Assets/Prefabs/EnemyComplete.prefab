@@ -219,6 +219,8 @@ MonoBehaviour:
   Health: {fileID: 7362293272207134346}
   Behaviour: {fileID: 5655250913366946935}
   HitResp: {fileID: 4840409160595329378}
+  PowerUpPrefab: {fileID: 0}
+  removalDelay: 4
 --- !u!114 &2561063911383834844
 MonoBehaviour:
   m_ObjectHideFlags: 0

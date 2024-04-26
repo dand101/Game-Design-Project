@@ -54,7 +54,7 @@ public class GunScriptableObject : ScriptableObject
         TrailPool.Clear();
         ShootSystem = null;
     }
-    
+
     public void Shoot(bool isMoving)
     {
         if (Time.time > ShootConfig.FireRate + LastShootTime)
@@ -65,8 +65,6 @@ public class GunScriptableObject : ScriptableObject
             Vector3 shootDirection;
             if (isMoving)
             {
-                // TODO: pare cam prea mult spread, in sensul ca uneori trage in cu totul alta directie, nici macar pe aproape
-                // poate ar trebui sa vedem aici cum modificam
                 shootDirection = ShootSystem.transform.forward
                                  + new Vector3(
                                      Random.Range(
@@ -213,6 +211,4 @@ public class GunScriptableObject : ScriptableObject
 
         return trail;
     }
-    
-    
 }
