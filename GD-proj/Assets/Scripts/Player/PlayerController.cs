@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private PlayerGunSelector GunSelector;
+    [SerializeField] public PlayerGunSelector GunSelector;
 
     [SerializeField] private float moveSpeed = 5f;
 
@@ -13,11 +13,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float gravity = 20f;
 
+    [SerializeField] private PlayerStats playerStats;
+
 
     private CharacterController characterController;
 
     private bool isDashing = false;
     private bool isReloading = false;
+    private float reloadTimer = 0f;
 
 
     private void Start()
@@ -27,6 +30,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        //AAAAAAAAAAAA
+        playerStats.isReloading = isReloading;
+        ///
+
         HandleMovementInput();
         HandleRotationInput();
         HandleShootInput();
@@ -64,20 +71,41 @@ public class PlayerController : MonoBehaviour
         bool wantsToShoot = Input.GetButton("Fire1");
         bool isMoving = characterController.velocity.magnitude > 0.1f;
 
-        GunSelector.ActiveGun.Tick(
-            !isReloading
-            && Application.isFocused && wantsToShoot
-            && GunSelector.ActiveGun != null, isMoving
-        );
-
-        if (ShouldManualReload())
+        if (GunSelector.ActiveGun != null && GunSelector.ActiveGun.gunAmmoConfig.CurrentClip == 0)
         {
-            isReloading = true;
-            GunSelector.ActiveGun.gunAmmoConfig.Reload();
-            isReloading = false;
+            if (!isReloading)
+            {
+                isReloading = true;
+                reloadTimer = GunSelector.ActiveGun.gunAmmoConfig.ReloadTime;
+            }
         }
-        
+        else
+        {
+            GunSelector.ActiveGun.Tick(
+                !isReloading && Application.isFocused && wantsToShoot && GunSelector.ActiveGun != null, isMoving
+            );
+
+            if (ShouldManualReload())
+            {
+                if (!isReloading)
+                {
+                    isReloading = true;
+                    reloadTimer = GunSelector.ActiveGun.gunAmmoConfig.ReloadTime;
+                }
+            }
+        }
+
+        if (isReloading)
+        {
+            reloadTimer -= Time.deltaTime;
+            if (reloadTimer <= 0)
+            {
+                GunSelector.ActiveGun.gunAmmoConfig.Reload();
+                isReloading = false;
+            }
+        }
     }
+
 
     private bool ShouldManualReload()
     {

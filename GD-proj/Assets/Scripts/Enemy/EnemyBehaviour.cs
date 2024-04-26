@@ -45,13 +45,13 @@ public class EnemyBehaviour : MonoBehaviour
         {
             if (IsPlayerInRange() && Time.time >= nextAttackTime)
             {
-                Debug.Log("Attacking player");
+                //Debug.Log("Attacking player");
                 Attack();
                 nextAttackTime = Time.time + 1f / attackSpeed;
             }
             else if (!IsPlayerInRange())
             {
-                Debug.Log("Chasing player");
+                //Debug.Log("Chasing player");
                 Chase();
             }
 

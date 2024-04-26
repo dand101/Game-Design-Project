@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 7461254187813345855}
   - component: {fileID: 6960842041007760839}
   - component: {fileID: 9076974885052598899}
+  - component: {fileID: 4127944165024390521}
   m_Layer: 0
   m_Name: EnemyShooter
   m_TagString: Untagged
@@ -206,6 +207,10 @@ MonoBehaviour:
   Health: {fileID: 6907647561107829918}
   Behaviour: {fileID: 7461254187813345855}
   HitResp: {fileID: 1619411798621783023}
+  PowerUpPrefab: {fileID: 0}
+  removalDelay: 4
+  playerStats: {fileID: 11400000, guid: 91ef3e3af639520408580f9262a31b26, type: 2}
+  material: {fileID: 2100000, guid: 3e7101ee60b046b418bc7a05d385162b, type: 2}
 --- !u!114 &2566855826067701921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 2
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineColor: {r: 1, g: 0.90539324, b: 0, a: 1}
   outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
@@ -258,7 +263,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 512
-  fireRate: 10
+  fireRate: 5
   gunDamage: 5
   trailConfig: {fileID: 11400000, guid: c0b8a678b75dd1e4fb0a67de848852a4, type: 2}
   ShootConfig: {fileID: 11400000, guid: 0ba40644567a82544abd55f9d5bdc6c7, type: 2}
@@ -5059,3 +5064,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4127944165024390521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066044484817916784}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b1400b7a7b74b3438a843bb97c82f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.3

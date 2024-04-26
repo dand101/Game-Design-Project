@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 2766168701684973721}
   - component: {fileID: 3188489296035035371}
   - component: {fileID: 2393464731177404084}
+  - component: {fileID: 5873625477736887442}
   m_Layer: 0
   m_Name: PlayerObj 1
   m_TagString: Player
@@ -191,6 +192,7 @@ MonoBehaviour:
   moveSpeed: 10
   dashDistance: 5
   gravity: 20
+  playerStats: {fileID: 11400000, guid: 91ef3e3af639520408580f9262a31b26, type: 2}
 --- !u!143 &2766168701684973721
 CharacterController:
   m_ObjectHideFlags: 0
@@ -230,10 +232,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: 0
-  GunParent: {fileID: 2987034503636903303}
-  Guns:
-  - {fileID: 11400000, guid: bdbd27d71a99df348a70f0d1433b72bd, type: 2}
+  gunParent: {fileID: 0}
+  guns: []
   ActiveGun: {fileID: 0}
+  activeGunIndex: 0
 --- !u!114 &2393464731177404084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,3 +254,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &5873625477736887442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6287726432024369354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71b59bd76d247fc870017a89fb20d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  playerStats: {fileID: 11400000, guid: 91ef3e3af639520408580f9262a31b26, type: 2}
+  currentHealth: 100
