@@ -209,6 +209,7 @@ MonoBehaviour:
   HitResp: {fileID: 1619411798621783023}
   PowerUpPrefab: {fileID: 0}
   removalDelay: 4
+  playerStats: {fileID: 11400000, guid: 91ef3e3af639520408580f9262a31b26, type: 2}
   material: {fileID: 2100000, guid: 3e7101ee60b046b418bc7a05d385162b, type: 2}
 --- !u!114 &2566855826067701921
 MonoBehaviour:

@@ -13,6 +13,8 @@ public class EnemyScript : MonoBehaviour
     public float removalDelay = 4f;
     public event Action<GameObject> OnDeath;
 
+    //depression
+    [SerializeField] private PlayerStats playerStats;
 
     [Header("On Death materials")] public Material material;
 
@@ -54,6 +56,7 @@ public class EnemyScript : MonoBehaviour
         // var rand = new System.Random();
         // int index = rand.Next(0, powerUpTypes.Length);
         // powerUp.AddComponent(powerUpTypes[index]);
+        playerStats.AddPoints(10);
 
         OnDeath?.Invoke(gameObject);
         Destroy(gameObject, removalDelay);

@@ -11,6 +11,7 @@ public class PowerUpHealth : PowerUp
 
     protected override void ApplyPowerUp()
     {
+        //Debug.Log("Applying power up health");
         var playerHealth = player.GetComponent<PlayerHealth>();
         playerHealth.currentHealth = Mathf.Clamp(playerHealth.currentHealth + 20, 0, 100);
     }

@@ -9,6 +9,8 @@ public class GunAmmoConfig : ScriptableObject
 
     public int CurrentAmmo = 300;
     public int CurrentClip = 30;
+    
+    public float ReloadTime = 1.5f;
 
     [Space] [Header("Standard Values for weapon")]
     public int MaxAmmoStandard = 300;

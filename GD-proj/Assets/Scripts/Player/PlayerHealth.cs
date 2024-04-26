@@ -5,6 +5,8 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
 
+    [SerializeField] private PlayerStats playerStats;
+
     [Header("Only to be seen in the inspector")]
     public int currentHealth = 100;
 
@@ -21,15 +23,15 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = playerStats.C_Health;
     }
 
     public void TakeDamage(int damage)
     {
-        //Debug.Log("Player took damage");
-
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        // cursed
+        playerStats.C_Health = currentHealth;
 
         OnTakeDamage?.Invoke(damage);
 

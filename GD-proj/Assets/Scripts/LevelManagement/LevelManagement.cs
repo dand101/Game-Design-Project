@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelManagement : MonoBehaviour
 {
     public LevelScriptableObject LevelScriptableObject;
+    public PlayerStats playerStats;
     public GunStatsManager gunStatsManager;
 
 
@@ -12,7 +13,7 @@ public class LevelManagement : MonoBehaviour
     {
         if (LevelScriptableObject == null)
         {
-            Debug.LogError("LevelScriptableObject is not set in the LevelManagement script. wtf");
+            Debug.LogError("LevelScriptableObject is not set in the LevelManagement script. what");
         }
 
         if (gunStatsManager == null)
@@ -22,6 +23,8 @@ public class LevelManagement : MonoBehaviour
 
         if (LevelScriptableObject.currentLevel == 1)
         {
+            playerStats.C_Health = 100;
+            playerStats.Points = 0;
             gunStatsManager.setAllGunsStart();
         }
         else
