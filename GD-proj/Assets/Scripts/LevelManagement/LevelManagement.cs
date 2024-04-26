@@ -7,6 +7,9 @@ public class LevelManagement : MonoBehaviour
     public LevelScriptableObject LevelScriptableObject;
     public PlayerStats playerStats;
     public GunStatsManager gunStatsManager;
+    public LvlCompleteDisplay lvlCompleteDisplay;
+    public GameObject upgradesGameObject;
+    public float upgradesSpawnDistance = 5f;
 
 
     private void Start()
@@ -36,7 +39,30 @@ public class LevelManagement : MonoBehaviour
     public void CompleteLevel()
     {
         LevelScriptableObject.CompleteLevel();
-        Debug.Log("Level completed. Current level: " + LevelScriptableObject.currentLevel);
+        lvlCompleteDisplay.DisplayLevelComplete();
+        //Debug.Log("Level completed. Current level: " + LevelScriptableObject.currentLevel);
+
+        GameObject playerObj = GameObject.Find("PlayerObj");
+
+        if (playerObj != null)
+        {
+            Vector3 spawnPosition =
+                playerObj.transform.position + (playerObj.transform.forward * upgradesSpawnDistance);
+
+            if (upgradesGameObject != null)
+            {
+                Instantiate(upgradesGameObject, spawnPosition, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogError("Upgrades GameObject is not assigned in the LevelManagement script.");
+            }
+        }
+        else
+        {
+            Debug.LogError(
+                "PlayerObj GameObject not found. Make sure the GameObject with the name 'PlayerObj' exists in the scene.");
+        }
     }
 
     public void ResetProgress()
