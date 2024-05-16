@@ -1,19 +1,20 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PointsDisplay : MonoBehaviour
 {
     [SerializeField] private PlayerStats playerStats;
-    private TextMeshProUGUI PointsText;
+    private Text PointsText;
 
     private void Awake()
     {
-        PointsText = GetComponent<TextMeshProUGUI>();
+        PointsText = GetComponent<Text>();
     }
 
     private void Update()
     {
-        PointsText.SetText($"Points: {playerStats.Points}");
+        PointsText.text = $"Score: {playerStats.Points}";
     }
 }

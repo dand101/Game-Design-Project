@@ -1,23 +1,24 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [DisallowMultipleComponent]
-[RequireComponent(typeof(TextMeshProUGUI))]
+[RequireComponent(typeof(Text))]
 public class AmmoDisplay : MonoBehaviour
 {
     [SerializeField] private PlayerGunSelector GunSelector;
-    private TextMeshProUGUI AmmoText;
+    private Text AmmoText;
 
 
     private void Awake()
     {
-        AmmoText = GetComponent<TextMeshProUGUI>();
+        AmmoText = GetComponent<Text>();
     }
 
     private void Update()
     {
-        AmmoText.SetText(
-            $"{GunSelector.ActiveGun.gunAmmoConfig.CurrentClip} / {GunSelector.ActiveGun.gunAmmoConfig.CurrentAmmo}");
+        AmmoText.text =
+            $"{GunSelector.ActiveGun.gunAmmoConfig.CurrentClip} / {GunSelector.ActiveGun.gunAmmoConfig.CurrentAmmo}";
     }
 }
