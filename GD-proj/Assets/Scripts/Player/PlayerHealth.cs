@@ -50,4 +50,12 @@ public class PlayerHealth : MonoBehaviour
 
         OnDeath?.Invoke();
     }
+    
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        // cursed
+        playerStats.C_Health = currentHealth;
+    }
 }

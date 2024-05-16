@@ -47,15 +47,18 @@ public class EnemyScript : MonoBehaviour
             dissolveScript.enabled = true;
         }
 
-        // // spawn a PowerUp
-        // GameObject powerUp = Instantiate(PowerUpPrefab, transform.position, Quaternion.identity);
-        //
-        // // attach a random type to the PowerUp
-        // Type[] powerUpTypes = { typeof(PowerUpFireRate), typeof(PowerUpSpread), typeof(PowerUpHealth), typeof(PowerUpAmmoCapacity), typeof(PowerUpAmmoIncrease) };
+        float powerUpChance = 0.5f; // 50% chance to spawn a powerup
+        System.Random rand = new System.Random();
+        if (rand.NextDouble() <= powerUpChance)
+        {
+            // Randomly choose between health and ammo powerup
+            GameObject powerUp = Instantiate(PowerUpPrefab, transform.position, Quaternion.identity);
+            Type[] powerUpTypes = { typeof(PowerUpHealth), typeof(PowerUpAmmoIncrease) };
+            int index = rand.Next(0, powerUpTypes.Length);
+            powerUp.AddComponent(powerUpTypes[index]);
+        }
 
-        // var rand = new System.Random();
-        // int index = rand.Next(0, powerUpTypes.Length);
-        // powerUp.AddComponent(powerUpTypes[index]);
+
         playerStats.AddPoints(10);
 
         OnDeath?.Invoke(gameObject);

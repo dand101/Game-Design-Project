@@ -13,6 +13,6 @@ public class PowerUpHealth : PowerUp
     {
         //Debug.Log("Applying power up health");
         var playerHealth = player.GetComponent<PlayerHealth>();
-        playerHealth.currentHealth = Mathf.Clamp(playerHealth.currentHealth + 20, 0, 100);
+        playerHealth.Heal(20);
     }
 }
