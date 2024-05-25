@@ -21,9 +21,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     public GameObject slashEffectPrefab;
 
-    public float attackCooldown = 2f;
+    public float slashEffectLifetime = 0.5f;
 
-    private float lastAttackTime = 0f;
 
 
 
@@ -93,13 +92,9 @@ public class EnemyBehaviour : MonoBehaviour
                 Debug.DrawRay(transform.position, attackDirection * attackRange, Color.green, 0.1f);
                 DealDamageToPlayer();
 
-                if (Time.time - lastAttackTime > attackCooldown)
-                {
-                    Quaternion slashRotation = Quaternion.LookRotation(attackDirection, Vector3.up);
-                    Instantiate(slashEffectPrefab, transform.position, slashRotation);
-                    lastAttackTime = Time.time;
-                }
-               
+                GameObject slashEffect = Instantiate(slashEffectPrefab, transform.position, Quaternion.identity);
+                slashEffect.transform.rotation = Quaternion.LookRotation(attackDirection, Vector3.up);
+                Destroy(slashEffect, slashEffectLifetime);
             }
         }
     }
