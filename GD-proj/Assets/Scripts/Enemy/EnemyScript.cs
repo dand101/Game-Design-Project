@@ -12,6 +12,8 @@ public class EnemyScript : MonoBehaviour
 
     public float removalDelay = 4f;
 
+    public AudioClip deathSound;
+
     //depression
     [SerializeField] private PlayerStats playerStats;
 
@@ -30,6 +32,7 @@ public class EnemyScript : MonoBehaviour
         Behaviour.StopMoving();
         HitResp.HandleDeath();
 
+        if (deathSound != null) AudioSource.PlayClipAtPoint(deathSound, transform.position);
         FallOver();
 
         var outline = GetComponent<Outline>();
