@@ -19,6 +19,13 @@ public class EnemyBehaviour : MonoBehaviour
     public float attackSpeed = 1.5f;
     private float nextAttackTime;
 
+    public GameObject slashEffectPrefab;
+
+    public float attackCooldown = 2f;
+
+    private float lastAttackTime = 0f;
+
+
 
     public virtual void Awake()
     {
@@ -85,6 +92,14 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 Debug.DrawRay(transform.position, attackDirection * attackRange, Color.green, 0.1f);
                 DealDamageToPlayer();
+
+                if (Time.time - lastAttackTime > attackCooldown)
+                {
+                    Quaternion slashRotation = Quaternion.LookRotation(attackDirection, Vector3.up);
+                    Instantiate(slashEffectPrefab, transform.position, slashRotation);
+                    lastAttackTime = Time.time;
+                }
+               
             }
         }
     }

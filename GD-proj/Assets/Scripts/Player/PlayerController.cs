@@ -21,6 +21,12 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     private bool isReloading = false;
     private float reloadTimer = 0f;
+    private bool isCooldown = false;
+    private int dashCount = 0;
+    private float lastDashTime = 0f;
+    public int maxDashes = 2;
+    public float dashCooldown = 5.0f;
+
 
 
     private void Start()
@@ -41,6 +47,13 @@ public class PlayerController : MonoBehaviour
 
         // fara mai zboara :(
         ApplyGravity();
+
+        if (Time.time - lastDashTime > dashCooldown && dashCount > 0)
+        {
+            dashCount--;
+
+            lastDashTime = Time.time;
+        }
     }
 
     private void HandleMovementInput()
@@ -117,7 +130,10 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDashInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isDashing) StartCoroutine(Dash());
+        if (Input.GetKeyDown(KeyCode.Space) && dashCount < maxDashes && !isDashing && !isCooldown)
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     private void ApplyGravity()
@@ -150,6 +166,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        isDashing = true;
         var startPosition = transform.position;
 
         var dashDirection = characterController.velocity.normalized;
@@ -157,7 +174,6 @@ public class PlayerController : MonoBehaviour
 
         bool collided = false;
         RaycastHit hit;
-
         float elapsedTime = 0f;
         while (elapsedTime < 1f)
         {
@@ -178,5 +194,7 @@ public class PlayerController : MonoBehaviour
             transform.position = dashTarget;
 
         isDashing = false;
+        dashCount++;
     }
+
 }
