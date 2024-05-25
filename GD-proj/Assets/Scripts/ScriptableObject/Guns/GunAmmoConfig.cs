@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 [CreateAssetMenu(fileName = "AmmoConfig", menuName = "Guns/Ammo", order = 6)]
 public class GunAmmoConfig : ScriptableObject
 {
@@ -9,7 +8,7 @@ public class GunAmmoConfig : ScriptableObject
 
     public int CurrentAmmo = 300;
     public int CurrentClip = 30;
-    
+
     public float ReloadTime = 1.5f;
 
     [Space] [Header("Standard Values for weapon")]
