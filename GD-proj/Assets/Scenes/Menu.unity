@@ -1825,6 +1825,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 393194567867878790, guid: 0a68be1bd13d8694e8d8fe85574ac075, type: 3}
+      propertyPath: levelScriptableObject
+      value: 
+      objectReference: {fileID: 11400000, guid: b3d71265e8b8f2248a6a4fb65628d880, type: 2}
     - target: {fileID: 393763660570553308, guid: 0a68be1bd13d8694e8d8fe85574ac075, type: 3}
       propertyPath: m_fontAsset
       value: 
