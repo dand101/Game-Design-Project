@@ -180,6 +180,8 @@ MonoBehaviour:
   damageAmount: 10
   attackSpeed: 1.5
   slashEffectPrefab: {fileID: 1171201465392465800, guid: 4aa9f30a28a77224ba84b2a2c334c71b, type: 3}
+  slashEffectLifetime: 0.5
+  attackSound: {fileID: 8300000, guid: 0688e04bd0345394195e842769c6d3c1, type: 3}
 --- !u!114 &7362293272207134346
 MonoBehaviour:
   m_ObjectHideFlags: 0

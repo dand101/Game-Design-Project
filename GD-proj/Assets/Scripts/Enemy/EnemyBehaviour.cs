@@ -23,6 +23,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     public float slashEffectLifetime = 0.5f;
 
+    public AudioClip attackSound;
+
 
 
 
@@ -94,6 +96,7 @@ public class EnemyBehaviour : MonoBehaviour
 
                 GameObject slashEffect = Instantiate(slashEffectPrefab, transform.position, Quaternion.identity);
                 slashEffect.transform.rotation = Quaternion.LookRotation(attackDirection, Vector3.up);
+                AudioSource.PlayClipAtPoint(attackSound, transform.position);
                 Destroy(slashEffect, slashEffectLifetime);
             }
         }
