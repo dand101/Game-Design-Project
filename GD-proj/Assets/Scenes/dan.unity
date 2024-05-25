@@ -379,9 +379,17 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 1736634021}
+    - target: {fileID: 5873625477736887442, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 198000010585806678, guid: 96730f8640590934eacb6f860058e7f9, type: 3}
     - target: {fileID: 6287726432024369354, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
       propertyPath: m_Name
       value: PlayerObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322423514050898053, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
+      propertyPath: looping
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6823142354563747939, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -391,7 +399,9 @@ PrefabInstance:
       propertyPath: dashCooldown
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6322423514050898053, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
+    - {fileID: 1945755995291239870, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
