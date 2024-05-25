@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAmmo: 1000
   ClipSize: 30
-  CurrentAmmo: 820
+  CurrentAmmo: 1000
   CurrentClip: 30
+  ReloadTime: 1.5
+  reloadSound: {fileID: 8300000, guid: 0eb673dc31e22fd4a8f158be386c8053, type: 3}
   MaxAmmoStandard: 1000
   ClipSizeStandard: 30
+  Model: {fileID: 0}

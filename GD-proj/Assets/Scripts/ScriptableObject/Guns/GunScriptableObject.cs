@@ -29,6 +29,8 @@ public class GunScriptableObject : ScriptableObject
     private ObjectPool<TrailRenderer> TrailPool;
     private bool LastFrameWantedToShoot;
 
+    public AudioClip shootSound;
+
 
     public void Spawn(Transform Parent, MonoBehaviour ActiveMonoBehaviour)
     {
@@ -55,12 +57,26 @@ public class GunScriptableObject : ScriptableObject
         ShootSystem = null;
     }
 
+
+    public void PlayShootSound()
+    {
+        if (shootSound != null)
+        {
+            AudioSource.PlayClipAtPoint(shootSound, Model.transform.position);
+        }
+        else
+        {
+            Debug.LogWarning("Shoot sound is not assigned in GunScriptableObject.");
+        }
+    }
+
     public void Shoot(bool isMoving)
     {
         if (Time.time > ShootConfig.FireRate + LastShootTime)
         {
             LastShootTime = Time.time;
             ShootSystem.Play();
+            PlayShootSound();
 
             Vector3 shootDirection;
             if (isMoving)
@@ -145,6 +161,15 @@ public class GunScriptableObject : ScriptableObject
                 Shoot(isMoving);
             }
         }
+    }
+
+    public void Reload()
+    {
+        if(Model == null)
+        {
+            return;
+        }
+        gunAmmoConfig.Reload(Model);
     }
 
     private IEnumerator PlayTrail(Vector3 StartPoint, Vector3 EndPoint, RaycastHit Hit)

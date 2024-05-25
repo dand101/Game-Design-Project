@@ -11,14 +11,32 @@ public class GunAmmoConfig : ScriptableObject
     public int CurrentClip = 30;
     
     public float ReloadTime = 1.5f;
+    public AudioClip reloadSound;
 
     [Space] [Header("Standard Values for weapon")]
     public int MaxAmmoStandard = 300;
 
     public int ClipSizeStandard = 30;
 
-    public void Reload()
+   
+
+
+    
+    private void PlayReloadSound(GameObject Model)
     {
+        if (reloadSound != null)
+        {
+            AudioSource.PlayClipAtPoint(reloadSound, Model.transform.position);
+        }
+        else
+        {
+            Debug.LogWarning("Reload sound is not assigned in GunScriptableObject.");
+        }
+    }
+
+    public void Reload(GameObject model)
+    {
+        PlayReloadSound(model);
         if (CurrentAmmo < ClipSize)
         {
             CurrentClip = CurrentAmmo;

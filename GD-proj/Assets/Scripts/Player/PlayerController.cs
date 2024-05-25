@@ -113,7 +113,8 @@ public class PlayerController : MonoBehaviour
             reloadTimer -= Time.deltaTime;
             if (reloadTimer <= 0)
             {
-                GunSelector.ActiveGun.gunAmmoConfig.Reload();
+                // GunSelector.ActiveGun.gunAmmoConfig.Reload();
+                GunSelector.ActiveGun.Reload();
                 isReloading = false;
             }
         }
