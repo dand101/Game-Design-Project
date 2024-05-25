@@ -9,7 +9,8 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private PlayerStats playerStats;
-    [SerializeField] private GameObject deathMenu; // Reference to the Death Menu UI
+    [SerializeField] private GameObject deathMenu;
+    [SerializeField] private ParticleSystem deathEffect;
 
     [Header("Only to be seen in the inspector")]
     public int currentHealth = 100;
@@ -55,12 +56,37 @@ public class PlayerHealth : MonoBehaviour
         // Show the death menu
         deathMenu.SetActive(true);
 
+        // Play the death effect and fall over
+        ExplodeAndFallOver();
+
+        // Disable player controls
+        DisablePlayerControls();
+
         OnDeath?.Invoke();
+    }
+
+    private void ExplodeAndFallOver()
+    {
+        if (deathEffect != null) Instantiate(deathEffect, transform.position, Quaternion.identity);
+
+        var characterController = GetComponent<CharacterController>();
+        if (characterController != null) characterController.enabled = false;
+
+        var rb = gameObject.AddComponent<Rigidbody>();
+        var forceDirection = -transform.forward;
+        var forceMagnitude = 10f;
+        rb.AddForce(forceDirection * forceMagnitude, ForceMode.Impulse);
+    }
+
+    private void DisablePlayerControls()
+    {
+        var playerController = GetComponent<PlayerController>();
+        if (playerController != null) playerController.enabled = false;
     }
 
     private void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("MainMenuScene"); // Replace "MainMenuScene" with your main menu scene name
+        SceneManager.LoadScene("Menu"); 
     }
 
     public void Heal(int amount)

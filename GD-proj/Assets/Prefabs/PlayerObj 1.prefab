@@ -193,6 +193,8 @@ MonoBehaviour:
   dashDistance: 5
   gravity: 20
   playerStats: {fileID: 11400000, guid: 91ef3e3af639520408580f9262a31b26, type: 2}
+  maxDashes: 2
+  dashCooldown: 5
 --- !u!143 &2766168701684973721
 CharacterController:
   m_ObjectHideFlags: 0
@@ -268,4 +270,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   playerStats: {fileID: 11400000, guid: 91ef3e3af639520408580f9262a31b26, type: 2}
+  deathMenu: {fileID: 0}
+  deathEffect: {fileID: 0}
   currentHealth: 100
