@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Pool;
+using UnityEngine.Rendering;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(NavMeshAgent))]
@@ -13,20 +13,25 @@ public class EnemyShootingBehaviour : EnemyBehaviour
     public int gunDamage = 10;
     public TrailConfigScriptableObject trailConfig;
     public ShootConfigScriptableObject ShootConfig;
+    public float strafeDistance = 5f;
+    public float waypointRadius = 5f;
+    public float separationDistance = 2f;
+    public float encircleRadius = 10f;
 
-    private bool isShooting = false;
-    private ObjectPool<TrailRenderer> trailPool;
     private NavMeshAgent agent;
+    private Vector3 currentWaypoint;
+    private bool isShooting;
+    private UnityEngine.Pool.ObjectPool<TrailRenderer> trailPool;
 
     public override void Awake()
     {
         base.Awake();
-        base.player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         playerHealth = player.GetComponent<PlayerHealth>();
 
         // Initialize the trail pool
-        trailPool = new ObjectPool<TrailRenderer>(CreateTrail);
+        trailPool = new UnityEngine.Pool.ObjectPool<TrailRenderer>(CreateTrail);
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -37,18 +42,22 @@ public class EnemyShootingBehaviour : EnemyBehaviour
 
     protected override IEnumerator UpdateMovement()
     {
-        WaitForSeconds waitForSeconds = new WaitForSeconds(0.1f);
+        var waitForSeconds = new WaitForSeconds(0.1f);
 
         while (enabled)
         {
-            if (IsPlayerInRange())
+            if (IsPlayerRange() && IsPlayerVisible())
             {
                 if (!isShooting)
                 {
-                    Agent.isStopped = true;
+                    agent.isStopped = true;
                     isShooting = true;
                     StartShooting();
                 }
+            }
+            else if (!IsPlayerRange() && !IsPlayerVisible())
+            {
+                EncircleAndSeparate();
             }
             else
             {
@@ -56,19 +65,52 @@ public class EnemyShootingBehaviour : EnemyBehaviour
                 {
                     isShooting = false;
                     StopShooting();
-                    Agent.isStopped = false;
+                    agent.isStopped = false;
                 }
 
-                Chase();
+                StrafeAroundPlayer();
             }
 
             yield return waitForSeconds;
         }
     }
 
+    private void StrafeAroundPlayer()
+    {
+        var strafeDirection = Vector3.Cross(Vector3.up, player.position - transform.position).normalized;
+        var strafeTarget = player.position + strafeDirection * strafeDistance;
+
+        // Move left and right while strafing
+        var leftStrafeTarget = player.position + strafeDirection * strafeDistance;
+        var rightStrafeTarget = player.position - strafeDirection * strafeDistance;
+
+        if (Random.value > 0.5f)
+            agent.SetDestination(leftStrafeTarget);
+        else
+            agent.SetDestination(rightStrafeTarget);
+    }
+
+    private void EncircleAndSeparate()
+    {
+        var offset = (transform.position - player.position).normalized * encircleRadius;
+        var circlePosition = player.position + offset;
+
+        var separationForce = Vector3.zero;
+        foreach (var enemy in FindObjectsOfType<EnemyShootingBehaviour>())
+            if (enemy != this)
+            {
+                var toOther = transform.position - enemy.transform.position;
+                if (toOther.sqrMagnitude < separationDistance * separationDistance)
+                    separationForce += toOther.normalized / toOther.magnitude;
+            }
+
+        var targetPosition = circlePosition + separationForce * separationDistance;
+        agent.SetDestination(targetPosition);
+    }
+
     private void StartShooting()
     {
-        float delay = 1f / fireRate;
+        var delay = 1f / fireRate;
         InvokeRepeating("Shoot", delay, delay);
     }
 
@@ -79,34 +121,33 @@ public class EnemyShootingBehaviour : EnemyBehaviour
 
     private void Shoot()
     {
-        if (!Agent.isActiveAndEnabled) return;
+        if (!agent.isActiveAndEnabled) return;
 
         transform.LookAt(player.position);
 
-        Vector3 direction = transform.forward
-                            + new Vector3(
-                                Random.Range(
-                                    -ShootConfig.Spread.x,
-                                    ShootConfig.Spread.x
-                                ),
-                                Random.Range(
-                                    -ShootConfig.Spread.y,
-                                    ShootConfig.Spread.y
-                                ),
-                                Random.Range(
-                                    -ShootConfig.Spread.z,
-                                    ShootConfig.Spread.z
-                                )
-                            );
+        var direction = transform.forward
+                        + new Vector3(
+                            Random.Range(
+                                -ShootConfig.Spread.x,
+                                ShootConfig.Spread.x
+                            ),
+                            Random.Range(
+                                -ShootConfig.Spread.y,
+                                ShootConfig.Spread.y
+                            ),
+                            Random.Range(
+                                -ShootConfig.Spread.z,
+                                ShootConfig.Spread.z
+                            )
+                        );
 
         direction.Normalize();
-        Vector3 trailPosition =
+        var trailPosition =
             transform.position + direction.normalized * 1.5f;
-        GameObject trailObj = new GameObject("EnemyTrail");
+        var trailObj = new GameObject("EnemyTrail");
         trailObj.transform.position = trailPosition;
-        TrailRenderer trailRenderer = trailObj.AddComponent<TrailRenderer>();
+        var trailRenderer = trailObj.AddComponent<TrailRenderer>();
         ConfigureTrailRenderer(trailRenderer);
-
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, targetLayer))
@@ -137,7 +178,7 @@ public class EnemyShootingBehaviour : EnemyBehaviour
     private IEnumerator ReleaseTrail(GameObject trailObj, TrailRenderer trailRenderer, float duration,
         Vector3 startPoint, Vector3 endPoint)
     {
-        float elapsedTime = 0f;
+        var elapsedTime = 0f;
 
         trailRenderer.transform.position = startPoint;
 
@@ -145,7 +186,7 @@ public class EnemyShootingBehaviour : EnemyBehaviour
 
         while (elapsedTime < duration)
         {
-            float t = elapsedTime / duration;
+            var t = elapsedTime / duration;
 
             trailRenderer.transform.position = Vector3.Lerp(startPoint, endPoint, t);
 
@@ -165,22 +206,33 @@ public class EnemyShootingBehaviour : EnemyBehaviour
 
     protected override bool IsPlayerInRange()
     {
-        Vector3 direction = player.position - transform.position;
+        var direction = player.position - transform.position;
 
-        if (Physics.Raycast(transform.position, direction, out RaycastHit hit, attackRange, obstacleLayer))
-        {
-            return false;
-        }
+        if (Physics.Raycast(transform.position, direction, out var hit, attackRange, obstacleLayer)) return false;
 
         return Vector3.Distance(transform.position, player.position) <= attackRange;
     }
 
+    protected bool IsPlayerRange()
+    {
+        return Vector3.Distance(transform.position, player.position) <= attackRange;
+    }
+
+    protected bool IsPlayerVisible()
+    {
+        var direction = player.position - transform.position;
+
+        if (Physics.Raycast(transform.position, direction, out var hit, attackRange, obstacleLayer)) return false;
+
+        return true;
+    }
+
     private TrailRenderer CreateTrail()
     {
-        GameObject instance = new GameObject("EnemyTrail");
+        var instance = new GameObject("EnemyTrail");
         instance.SetActive(false);
-        TrailRenderer trailRenderer = instance.AddComponent<TrailRenderer>();
-        trailRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        var trailRenderer = instance.AddComponent<TrailRenderer>();
+        trailRenderer.shadowCastingMode = ShadowCastingMode.Off;
         trailRenderer.receiveShadows = false;
         return trailRenderer;
     }

@@ -13,11 +13,8 @@
       <change beforePath="$PROJECT_DIR$/Assets/I_Assets/SpeedTutor - Tutorial Scene - FREE/Material/M_Tileable_Cube.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/SpeedTutor - Tutorial Scene - FREE/Material/M_Tileable_Cube.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/I_Assets/SpeedTutor - Tutorial Scene - FREE/Material/M_Tileable_Walls.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/I_Assets/SpeedTutor - Tutorial Scene - FREE/Material/M_Tileable_Walls.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Objects/Guns/Pistol/PistolDmgConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Objects/Guns/Pistol/PistolDmgConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManagement/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManagement/EnemySpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/CubeGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/CubeGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Data/ThemeSettings_ModernMenuUI.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SlimUI/Data/ThemeSettings_ModernMenuUI.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Modern Menu 1/Scripts/Managers/UIMenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SlimUI/Modern Menu 1/Scripts/Managers/UIMenuManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemyShooter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/EnemyShooter.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyShootingBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyShootingBehaviour.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +120,7 @@
       <workItem from="1711004556570" duration="1340000" />
       <workItem from="1711009284161" duration="1793000" />
       <workItem from="1712064759075" duration="28573000" />
-      <workItem from="1716979365686" duration="841000" />
+      <workItem from="1716979365686" duration="2864000" />
     </task>
     <servers />
   </component>
