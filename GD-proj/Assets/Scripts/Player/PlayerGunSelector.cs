@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -11,7 +10,7 @@ public class PlayerGunSelector : MonoBehaviour
 
     [Space] [Header("Runtime Filled")] public GunScriptableObject ActiveGun;
     [Space] [Header("Runtime Filled")] public int activeGunIndex;
-    
+
 
     private void Start()
     {
@@ -23,20 +22,17 @@ public class PlayerGunSelector : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && activeGunIndex != 0)
-        {
             SwitchGun(0);
-        }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && activeGunIndex != 1)
-        {
             SwitchGun(1);
-        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && activeGunIndex != 2) SwitchGun(2);
     }
 
     private void SwitchGun(int index)
     {
         if (index >= 0 && index < guns.Count)
         {
-            GunScriptableObject lastGun = ActiveGun;
+            var lastGun = ActiveGun;
             ActiveGun = guns[index];
             ActiveGun.Spawn(gunParent, this);
             lastGun.Despawn();

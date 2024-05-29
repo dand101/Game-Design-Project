@@ -317,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3188489296035035371, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
       propertyPath: guns.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3188489296035035371, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
       propertyPath: Guns.Array.data[0]
@@ -335,6 +335,10 @@ PrefabInstance:
       propertyPath: guns.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: bdbd27d71a99df348a70f0d1433b72bd, type: 2}
+    - target: {fileID: 3188489296035035371, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
+      propertyPath: guns.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: fd75669ebee4f994c833420b1a51dd68, type: 2}
     - target: {fileID: 4733189265541512908, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.8
@@ -1708,6 +1712,7 @@ MonoBehaviour:
   guns:
   - {fileID: 11400000, guid: bdbd27d71a99df348a70f0d1433b72bd, type: 2}
   - {fileID: 11400000, guid: 16a6d23eac5a50f4aa9714ead06a7642, type: 2}
+  - {fileID: 11400000, guid: fd75669ebee4f994c833420b1a51dd68, type: 2}
 --- !u!4 &1245231479
 Transform:
   m_ObjectHideFlags: 0

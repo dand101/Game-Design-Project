@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d16f8c7a564607884716842bbd1e49, type: 3}
-  m_Name: PistolDmgConfig
+  m_Name: SNiperDmgConf
   m_EditorClassIdentifier: 
   dmgCurve:
     m_Mode: 2
@@ -19,8 +19,8 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.722065
-        value: 27.880127
+        time: 0
+        value: 60.39546
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -28,8 +28,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 66.77142
-        value: 25.775223
+        time: 231.7906
+        value: 57.651733
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -43,8 +43,8 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.48473406
-        value: 30.100563
+        time: 0
+        value: 65.20227
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -52,8 +52,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 66.926315
-        value: 24.991877
+        time: 239.0798
+        value: 54.39292
         inSlope: 0
         outSlope: 0
         tangentMode: 0
