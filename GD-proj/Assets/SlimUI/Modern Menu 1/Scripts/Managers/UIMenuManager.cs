@@ -371,4 +371,6 @@ namespace SlimUI.ModernMenu
             if (!menuEventSystem.gameObject.activeInHierarchy) menuEventSystem.gameObject.SetActive(true);
         }
     }
+    
+    
 }

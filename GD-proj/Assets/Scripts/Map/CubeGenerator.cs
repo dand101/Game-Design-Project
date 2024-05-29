@@ -1,14 +1,14 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class CubeGenerator : MonoBehaviour
 {
+    private const float colorDifferenceThreshold = 0.5f;
     public GameObject cubePrefab;
     public int minNumCubesPerPlane = 2;
     public int maxNumCubesPerPlane = 10;
     public float minDistanceBetweenCubes = 0.5f;
-    private List<GameObject> generatedCubes = new List<GameObject>();
 
     public NavMeshSurface navMeshSurface;
 
@@ -22,32 +22,65 @@ public class CubeGenerator : MonoBehaviour
     public Material wallMaterial;
 
     public GameObject player;
+    private readonly List<GameObject> generatedCubes = new();
 
-    void Generate()
+    private Color previousColor;
+
+
+    private void Start()
     {
-        GameObject[] planes = GameObject.FindGameObjectsWithTag("Floor");
+        foreach (var cube in generatedCubes) Destroy(cube);
 
-        foreach (GameObject plane in planes)
+        generatedCubes.Clear();
+        var randomColor = GenerateRandomColor();
+        if (cubeMaterial != null)
         {
-            Bounds bounds = GetWorldBounds(plane);
-            Vector3 planeCenter = bounds.center;
-            Vector3 planeSize = bounds.size;
+            var newColor = randomColor * 1.5f;
+            cubeMaterial.SetColor("_EmissionColor", newColor);
+            cubeMaterial.EnableKeyword("_EMISSION");
+        }
 
-            Vector3 cubeSize = cubePrefab.transform.localScale;
-            float halfCubeWidth = cubeSize.x * 0.5f;
-            float halfCubeHeight = cubeSize.y * 0.5f;
-            float halfCubeDepth = cubeSize.z * 0.5f;
-            int numCubesPerPlane = Random.Range(minNumCubesPerPlane, maxNumCubesPerPlane + 1);
+        if (wallMaterial != null)
+        {
+            wallMaterial.SetColor("_EmissionColor", randomColor);
+            wallMaterial.EnableKeyword("_EMISSION");
+        }
 
-            List<Vector3> cubePositions = new List<Vector3>();
+        Generate();
+        navMeshSurface.BuildNavMesh();
+    }
 
-            for (int i = 0; i < numCubesPerPlane; i++)
+    private void Generate()
+    {
+        var planes = GameObject.FindGameObjectsWithTag("Floor");
+
+        if (PlayerPrefs.GetInt("HardCoreDifficulty") == 1)
+        {
+            minNumCubesPerPlane += 3;
+            maxNumCubesPerPlane += 3;
+        }
+
+        foreach (var plane in planes)
+        {
+            var bounds = GetWorldBounds(plane);
+            var planeCenter = bounds.center;
+            var planeSize = bounds.size;
+
+            var cubeSize = cubePrefab.transform.localScale;
+            var halfCubeWidth = cubeSize.x * 0.5f;
+            var halfCubeHeight = cubeSize.y * 0.5f;
+            var halfCubeDepth = cubeSize.z * 0.5f;
+            var numCubesPerPlane = Random.Range(minNumCubesPerPlane, maxNumCubesPerPlane + 1);
+
+            var cubePositions = new List<Vector3>();
+
+            for (var i = 0; i < numCubesPerPlane; i++)
             {
-                Vector3 cubePos = Vector3.zero;
-                bool validPosition = false;
-                float scale = Random.Range(minDim, maxDim);
+                var cubePos = Vector3.zero;
+                var validPosition = false;
+                var scale = Random.Range(minDim, maxDim);
 
-                int attempts = 0;
+                var attempts = 0;
                 while (!validPosition && attempts < 100)
                 {
                     cubePos = new Vector3(
@@ -60,47 +93,43 @@ public class CubeGenerator : MonoBehaviour
 
 
                     validPosition = true;
-                    foreach (Vector3 existingPos in cubePositions)
-                    {
+                    foreach (var existingPos in cubePositions)
                         if (Vector3.Distance(cubePos, existingPos) < 4 * halfCubeWidth * Mathf.Sqrt(2))
                         {
                             validPosition = false;
                             break;
                         }
-                    }
 
-                    foreach (GameObject existingCube in generatedCubes)
+                    foreach (var existingCube in generatedCubes)
                     {
-                        Collider existingCollider = existingCube.GetComponent<Collider>();
+                        var existingCollider = existingCube.GetComponent<Collider>();
                         if (existingCollider.bounds.Contains(cubePos))
                         {
                             validPosition = false;
                             break;
                         }
 
-                        Vector3 existingCubeSize = existingCube.transform.localScale;
+                        var existingCubeSize = existingCube.transform.localScale;
                         if (Vector3.Distance(cubePos, existingCube.transform.position) <
-                            (existingCubeSize.x + scale * cubeSize.x))
+                            existingCubeSize.x + scale * cubeSize.x)
                         {
                             validPosition = false;
                             break;
                         }
                     }
 
-                    Collider playerCollider = player.GetComponent<Collider>();
+                    var playerCollider = player.GetComponent<Collider>();
                     if (Vector3.Distance(cubePos, player.transform.position) <
                         (scale + 1) * halfCubeWidth * Mathf.Sqrt(2) || playerCollider.bounds.Contains(cubePos))
-                    {
                         validPosition = false;
-                    }
 
                     attempts++;
                 }
 
                 if (validPosition)
                 {
-                    Vector3 cubeScale = cubePrefab.transform.localScale * scale;
-                    GameObject newCube = Instantiate(cubePrefab, cubePos, Quaternion.identity);
+                    var cubeScale = cubePrefab.transform.localScale * scale;
+                    var newCube = Instantiate(cubePrefab, cubePos, Quaternion.identity);
                     newCube.transform.localScale = cubeScale;
                     cubePositions.Add(cubePos);
                     generatedCubes.Add(newCube);
@@ -111,33 +140,6 @@ public class CubeGenerator : MonoBehaviour
                 }
             }
         }
-    }
-
-
-    void Start()
-    {
-        foreach (GameObject cube in generatedCubes)
-        {
-            Destroy(cube);
-        }
-        
-        generatedCubes.Clear();
-        Color randomColor = GenerateRandomColor();
-        if (cubeMaterial != null)
-        {
-            Color newColor = randomColor * 1.5f;
-            cubeMaterial.SetColor("_EmissionColor", newColor);
-            cubeMaterial.EnableKeyword("_EMISSION");
-        }
-        
-        if (wallMaterial != null)
-        {
-            wallMaterial.SetColor("_EmissionColor", randomColor);
-            wallMaterial.EnableKeyword("_EMISSION");
-        }
-        
-        Generate();
-        navMeshSurface.BuildNavMesh();
     }
 
     // void Update()
@@ -170,28 +172,22 @@ public class CubeGenerator : MonoBehaviour
 
     private Bounds GetWorldBounds(GameObject obj)
     {
-        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-        Bounds bounds = new Bounds();
+        var renderers = obj.GetComponentsInChildren<Renderer>();
+        var bounds = new Bounds();
 
-        foreach (Renderer renderer in renderers)
-        {
-            bounds.Encapsulate(renderer.bounds);
-        }
+        foreach (var renderer in renderers) bounds.Encapsulate(renderer.bounds);
 
         return bounds;
     }
-
-    private Color previousColor;
-    private const float colorDifferenceThreshold = 0.5f;
 
     public Color GenerateRandomColor()
     {
         Color randomColor;
         do
         {
-            float r = Random.Range(0.1f, 1.0f);
-            float g = Random.Range(0.1f, 1.0f);
-            float b = Random.Range(0.1f, 1.0f);
+            var r = Random.Range(0.1f, 1.0f);
+            var g = Random.Range(0.1f, 1.0f);
+            var b = Random.Range(0.1f, 1.0f);
 
             randomColor = new Color(r, g, b);
         } while (ColorDifference(previousColor, randomColor) < colorDifferenceThreshold);
