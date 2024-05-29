@@ -17,6 +17,7 @@ public class EnemyShootingBehaviour : EnemyBehaviour
     public float waypointRadius = 5f;
     public float separationDistance = 2f;
     public float encircleRadius = 10f;
+    public AudioClip shootSound;
 
     private NavMeshAgent agent;
     private Vector3 currentWaypoint;
@@ -148,6 +149,9 @@ public class EnemyShootingBehaviour : EnemyBehaviour
         trailObj.transform.position = trailPosition;
         var trailRenderer = trailObj.AddComponent<TrailRenderer>();
         ConfigureTrailRenderer(trailRenderer);
+
+        if (shootSound != null)
+            AudioSource.PlayClipAtPoint(shootSound, transform.position);
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, targetLayer))

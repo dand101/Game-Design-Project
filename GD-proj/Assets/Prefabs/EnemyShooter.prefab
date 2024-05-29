@@ -275,6 +275,7 @@ MonoBehaviour:
   waypointRadius: 8
   separationDistance: 8
   encircleRadius: 15
+  shootSound: {fileID: 8300000, guid: b9bcff787e03ea4448419527c126e177, type: 3}
 --- !u!198 &6960842041007760839
 ParticleSystem:
   m_ObjectHideFlags: 0
