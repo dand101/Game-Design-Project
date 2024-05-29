@@ -401,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ecc6806106918da45a17393b275ad3ec, type: 2}
     - target: {fileID: 9161141021338525150, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}
       propertyPath: dashCooldown
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6322423514050898053, guid: 020212ac5d2cf90469a85b5afd83634f, type: 3}

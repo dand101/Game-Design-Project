@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d7f8b87bb545ca4ea8ddff4fc6984f8, type: 3}
   m_Name: PistolTrailConfig
   m_EditorClassIdentifier: 
-  Material: {fileID: 2100000, guid: f12840f1acce5aa4b909c5627ad060ba, type: 2}
+  Material: {fileID: 2100000, guid: fa6fb5a7b3cb07c419af089a7079f193, type: 2}
   WidthCurve:
     serializedVersion: 2
     m_Curve:
